@@ -1,0 +1,14 @@
+ 1 1
+
+<target, controls>
+integer, array of integer
+
+integer, binary number
+
+target = 2, controls = [1]
+2, 01
+
+gate: 0,    T1011 ----- <0, [1,3,4]>
+input =     11010
+            1 AND 1 AND 0 = 0 XOR 1 -> 1
+            output = 11010

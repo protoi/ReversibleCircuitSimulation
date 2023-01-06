@@ -14,10 +14,10 @@ class Gate:
     target, inverted_target, controls, number_of_lines = None, None, None, None
 
     def __init__(self, target, controls, number_of_lines):
-        self.target = target
+        self.target = target  # binary number with only one 1-bit
         self.inverted_target = bit_flipper(target, number_of_lines)
-        self.controls = controls
-        self.number_of_lines = number_of_lines
+        self.controls = controls  # which lines are influence the output
+        self.number_of_lines = number_of_lines  # number of input lines total
 
     def generate_output(self, input_lines):
         masked_input = self.inverted_target & input_lines
@@ -26,6 +26,9 @@ class Gate:
             return input_lines ^ self.target
         else:
             return input_lines
+
+    # old input -> 101 & 110 -> 100
+    # 100 == 100
 
     def print_gate_info(self):
         display(self.controls, self.number_of_lines)
@@ -44,12 +47,13 @@ class Circuit:
         self.cascade_of_gates = [
             Gate(config_data['target'], config_data['controls'], self.number_of_lines)
             for config_data in gate_config]
-        self.smgf = [False for _ in range(len(gate_config))]
-        self.pmgf = copy.copy(self.smgf)
 
     def circuit_user(self):
         self.outputs = [None for _ in range(len(self.cascade_of_gates))]
         current_output = self.starting_data
+
+        self.smgf = [False for _ in range(len(self.cascade_of_gates))]
+        self.pmgf = copy.copy(self.smgf)
 
         for index, gates in enumerate(self.cascade_of_gates):
             current_input = copy.copy(current_output)
@@ -58,23 +62,27 @@ class Circuit:
             # smgf #
             if current_input & gates.controls == gates.controls:
                 self.smgf[index] = True
-                # pmgf #
+            # pmgf #
             else:
-                temp_controls = gates.controls
-                bits_read = 0
-                answer = 0
-                while temp_controls != 0 and current_input != 0:
-                    isolator = 0b1
-                    current_last = current_input & isolator
-                    gates_last = temp_controls & isolator
-                    if gates_last == 1 and current_last == 0:
-                        # print(1)
-                        answer = answer | 2 ** bits_read
-
-                    temp_controls = temp_controls >> 1
-                    current_input = current_input >> 1
-                    bits_read += 1
+                answer = self.generate_pmgf(current_input, gates)
                 self.pmgf[index] = answer
+
+    def generate_pmgf(self, current_input, gates):
+        temp_controls = gates.controls
+        bits_read = 0
+        answer = 0
+        while temp_controls != 0 and current_input != 0:
+            isolator = 0b1
+            current_last = current_input & isolator
+            gates_last = temp_controls & isolator
+            if gates_last == 1 and current_last == 0:
+                # print(1)
+                answer = answer | 2 ** bits_read
+
+            temp_controls = temp_controls >> 1
+            current_input = current_input >> 1
+            bits_read += 1
+        return answer
 
     def print_outputs(self):
         print(f'for input data: ')
@@ -85,10 +93,8 @@ class Circuit:
             display(outs, self.number_of_lines)
 
     def print_faults(self):
-        print(f'smgf: {self.smgf}')
-        print(f'pmgf: ')
-        for i in self.pmgf:
-            display(i, self.number_of_lines)
+        print(f'smgf:\n{self.smgf}')
+        print(f'pmgf:\n{[f"{i:#0{self.number_of_lines + 2}b}" for i in self.pmgf]}')
 
 
 def test0():
@@ -99,7 +105,6 @@ def test0():
               {'target': 0b100, 'controls': 0b011},
               {'target': 0b100, 'controls': 0b001}]
     circ.circuit_maker(mydata)
-
     for i in range(2 ** 3):
         circ.set_starting_data(i)
         circ.circuit_user()

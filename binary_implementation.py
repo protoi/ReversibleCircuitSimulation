@@ -1,8 +1,9 @@
 import copy
+import random
 
 
 def display(num, formatting):
-    print(f'{num:#0{formatting + 2}b}')
+    return f'{num:#0{formatting + 2}b}'[2:]
 
 
 def bit_flipper(num, no_of_bits):
@@ -31,7 +32,7 @@ class Gate:
     # 100 == 100
 
     def print_gate_info(self):
-        display(self.controls, self.number_of_lines)
+        print(display(self.controls, self.number_of_lines))
 
 
 class Circuit:
@@ -64,8 +65,7 @@ class Circuit:
                 self.smgf[index] = True
             # pmgf #
             else:
-                answer = self.generate_pmgf(current_input, gates)
-                self.pmgf[index] = answer
+                self.pmgf[index] = self.generate_pmgf(current_input, gates)
 
     def generate_pmgf(self, current_input, gates):
         temp_controls = gates.controls
@@ -85,16 +85,41 @@ class Circuit:
         return answer
 
     def print_outputs(self):
-        print(f'for input data: ')
-        display(self.starting_data, self.number_of_lines)
+        print(f'for input data: {display(self.starting_data, self.number_of_lines)}')
 
         for index, outs in enumerate(self.outputs):
             print(f'gate #{index + 1}: output data: ', end='')
-            display(outs, self.number_of_lines)
+            print(display(outs, self.number_of_lines))
 
     def print_faults(self):
         print(f'smgf:\n{self.smgf}')
-        print(f'pmgf:\n{[f"{i:#0{self.number_of_lines + 2}b}" for i in self.pmgf]}')
+        print(f'pmgf:\n{[display(i, self.number_of_lines) for i in self.pmgf]}')
+
+
+class DataSet:
+    no_of_lines, no_of_gates = None, None
+    gate_cascade = None
+
+    def __init__(self, no_of_lines, no_of_gates):
+        self.no_of_lines = no_of_lines
+        self.no_of_gates = no_of_gates
+
+    def display_test_set(self):
+        for index, gate in enumerate(self.gate_cascade):
+            print(
+                f'gate #{index + 1}: target: {display(gate["target"], self.no_of_lines)}\t controls: {display(gate["controls"], self.no_of_lines)}')
+
+    def generate_test_sets(self):
+        self.gate_cascade = [{} for _ in range(self.no_of_gates)]
+        for index in range(self.no_of_gates):
+            target = 2 ** random.randint(0, self.no_of_lines - 1)  # binary numbers like 1, 10, 100, 1000...
+            inverted_target = bit_flipper(target, self.no_of_lines)
+            # generate a random number that is not a multiple of 2
+            controls = random.randint(0, 2 ** self.no_of_lines - 1)
+            # to make sure target location is always 0 for control, we AND it with inverted target
+            controls = controls & inverted_target
+            self.gate_cascade[index] = {'target': target, 'controls': controls}
+        return self.gate_cascade
 
 
 def test0():
@@ -106,7 +131,14 @@ def test0():
               {'target': 0b100, 'controls': 0b001}]
     circ.circuit_maker(mydata)
     for i in range(2 ** 3):
+        print('_______________________________________________________')
         circ.set_starting_data(i)
         circ.circuit_user()
         circ.print_outputs()
         circ.print_faults()
+
+
+def test1():
+    ds = DataSet(5, 6)  # 5 input lines and 6 gates
+    ds.generate_test_sets()
+    ds.display_test_set()

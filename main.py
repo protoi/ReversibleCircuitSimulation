@@ -9,4 +9,5 @@ if __name__ == "__main__":
 
     # binimp.test0()
     binimp.test1()
+    binimp.test0()
     pass

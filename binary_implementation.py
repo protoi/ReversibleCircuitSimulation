@@ -1,5 +1,6 @@
 import copy
 import random
+import utilities as utils
 
 
 def display(num: int, formatting: int) -> str:
@@ -20,7 +21,7 @@ def bit_flipper(num: int, no_of_bits: int) -> int:
     Example: num = 100 and no_of_bits = 5.
     The number is essentially 00100 and the
     flipped version is 11011.
-    :param num: the number to be flipped
+    :param num: the number to be flipped.
     :type num: int
     :param no_of_bits: total number of bits (including leading 0's)
     :type no_of_bits: int
@@ -44,8 +45,9 @@ class Gate:
             Used for masking and removing the target bit in `controls`.
             If target is 000100, inverted_target will be 111011.
 
-        controls: an integer whose binary representation denotes what lines are used as the control inputs for the reversible gate.
-            For example: 1100101 which means control #0,1,4,6 are used to determine the activation of the gate
+        controls: an integer whose binary representation denotes what lines are used as the control inputs for the
+        reversible gate. For example: 1100101 which means control #0,1,4,6 are used to determine the activation of
+        the gate
 
         number_of_lines: represents how many lines are in the circuit
 
@@ -186,16 +188,22 @@ class Circuit:
         temp_controls = gates.controls
         bits_read = 0
         answer = 0
-        while temp_controls != 0 and current_input != 0:
+        flag = False
+
+        while temp_controls != 0 or current_input != 0:
             isolator = 0b1
             current_last = current_input & isolator  # extracting the last bit
             gates_last = temp_controls & isolator  # extracting the last bit
             if gates_last == 1 and current_last == 0:
+                if flag:  # this is done to remove higher order pmgfs, we only want 1st order pmgfs
+                    return 0b0
                 answer = answer | 2 ** bits_read
+                flag = True
 
             temp_controls = temp_controls >> 1
             current_input = current_input >> 1
             bits_read += 1
+
         return answer
 
     def print_outputs(self):
@@ -257,15 +265,33 @@ def test0():
               {'target': 0b100, 'controls': 0b011},
               {'target': 0b100, 'controls': 0b001}]
     circ.circuit_maker(mydata)
-    for i in range(2 ** 4):
-        print('_______________________________________________________')
+    # for i in range(2 ** 3):
+
+    # TODO: remove higher order pgmfs
+    print('_______________________________________________________')
+    for i in range(2 ** 3):
         circ.set_starting_data(i)
         circ.circuit_user()
         circ.print_outputs()
         circ.print_faults()
+        print("=================")
+        print(circ.smgf)
+        print(circ.pmgf)
+        print("=================")
 
 
 def test1():
     ds = DataSet(5, 6)  # 5 input lines and 6 gates
     ds.generate_test_sets()
     ds.display_test_set()
+
+
+def test2():
+    circuit = Circuit(9)
+    mydat = [{'target': 0b000010000, 'controls': 0b011000110}]
+    circuit.circuit_maker(mydat)
+    circuit.set_starting_data(0b011010110)
+    circuit.circuit_user()
+    circuit.print_outputs()
+    circuit.print_faults()
+    pass

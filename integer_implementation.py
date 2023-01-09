@@ -106,7 +106,7 @@ class Circuit:
 def test0():
     print("___________________TEST 0___________________")
     circ = Circuit(3)
-    circ.set_starting_data(Inputs([1, 1, 1]))
+    circ.set_starting_data(Inputs([1, 0, 0]))
     mydata = [{'target': 2, 'controls': [0, 1]},
               {'target': 2, 'controls': [1]},
               {'target': 2, 'controls': [0]},

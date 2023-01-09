@@ -3,35 +3,6 @@ import random
 import utilities as utils
 
 
-def display(num: int, formatting: int) -> str:
-    """
-    binary representation of a number in string format
-    :param num: a number whose binary form is to be displayed
-    :type num: int
-    :param formatting: number of bits in the binary representation
-    :type formatting: int
-    :return: a binary string of length formatting which is the binary representation of num
-    :rtype: str
-    """
-    return f'{num:#0{formatting + 2}b}'[2:]
-
-
-def bit_flipper(num: int, no_of_bits: int) -> int:
-    """
-    Example: num = 100 and no_of_bits = 5.
-    The number is essentially 00100 and the
-    flipped version is 11011.
-    :param num: the number to be flipped.
-    :type num: int
-    :param no_of_bits: total number of bits (including leading 0's)
-    :type no_of_bits: int
-    :return: a flipped version of num
-    :rtype: int
-    """
-    temp = 2 ** (no_of_bits + 1) - 1
-    return temp ^ num
-
-
 class Gate:
     """
     Representation of a single reversible gate.
@@ -56,7 +27,7 @@ class Gate:
 
     def __init__(self, target: int, controls: int, number_of_lines: int):
         self.target = target  # binary number with only one 1-bit
-        self.inverted_target = bit_flipper(target, number_of_lines)
+        self.inverted_target = utils.bit_flipper(target, number_of_lines)
         self.controls = controls  # which lines are influence the output
         self.number_of_lines = number_of_lines  # number of input lines total
 
@@ -90,7 +61,7 @@ class Gate:
             return input_lines
 
     def print_gate_info(self):
-        print(display(self.controls, self.number_of_lines))
+        print(utils.display(self.controls, self.number_of_lines))
 
 
 class Circuit:
@@ -207,15 +178,15 @@ class Circuit:
         return answer
 
     def print_outputs(self):
-        print(f'for input data: {display(self.starting_data, self.number_of_lines)}')
+        print(f'for input data: {utils.display(self.starting_data, self.number_of_lines)}')
 
         for index, outs in enumerate(self.outputs):
             print(f'gate #{index + 1}: output data: ', end='')
-            print(display(outs, self.number_of_lines))
+            print(utils.display(outs, self.number_of_lines))
 
     def print_faults(self):
         print(f'smgf:\n{self.smgf}')
-        print(f'pmgf:\n{[display(i, self.number_of_lines) for i in self.pmgf]}')
+        print(f'pmgf:\n{[utils.display(i, self.number_of_lines) for i in self.pmgf]}')
 
 
 class DataSet:
@@ -238,7 +209,7 @@ class DataSet:
     def display_test_set(self):
         for index, gate in enumerate(self.gate_cascade):
             print(
-                f'gate #{index + 1}: target: {display(gate["target"], self.no_of_lines)}\t controls: {display(gate["controls"], self.no_of_lines)}')
+                f'gate #{index + 1}: target: {utils.display(gate["target"], self.no_of_lines)}\t controls: {utils.display(gate["controls"], self.no_of_lines)}')
 
     def generate_test_sets(self) -> list:
         # creating a placeholder list of empty dictionaries
@@ -246,7 +217,7 @@ class DataSet:
 
         for index in range(self.no_of_gates):
             target = 2 ** random.randint(0, self.no_of_lines - 1)  # binary numbers like 1, 10, 100, 1000...
-            inverted_target = bit_flipper(target, self.no_of_lines)
+            inverted_target = utils.bit_flipper(target, self.no_of_lines)
 
             # generate a random number that is not a multiple of 2
             controls = random.randint(0, 2 ** self.no_of_lines - 1)
@@ -258,26 +229,30 @@ class DataSet:
 
 
 def test0():
+    no_of_lines = 3
+    no_of_gates = 5
     circ = Circuit(3)
-    mydata = [{'target': 0b001, 'controls': 0b110},
-              {'target': 0b001, 'controls': 0b010},
-              {'target': 0b001, 'controls': 0b100},
-              {'target': 0b100, 'controls': 0b011},
-              {'target': 0b100, 'controls': 0b001}]
+    mydata = [{'target': 0b001, 'controls': 0b110},  # 100 OR 010 -> fault #6 & 7
+              {'target': 0b001, 'controls': 0b010},  # 010 -> fault #8
+              {'target': 0b001, 'controls': 0b100},  # 100 -> fault #9
+              {'target': 0b100, 'controls': 0b011},  # 010 OR 001 -> fault 10,11
+              {'target': 0b100, 'controls': 0b001}]  # 001 -> fault #12
     circ.circuit_maker(mydata)
-    # for i in range(2 ** 3):
 
-    # TODO: remove higher order pgmfs
+    fault_map = utils.map_pmgf_with_fault(mydata, no_of_lines)
+    fault_table = [[] for _ in range(2 ** no_of_lines)]
     print('_______________________________________________________')
-    for i in range(2 ** 3):
-        circ.set_starting_data(i)
+    for circuit_input in range(2 ** no_of_lines):
+        # print(utils.display(circuit_input, no_of_lines))
+        circ.set_starting_data(circuit_input)
         circ.circuit_user()
-        circ.print_outputs()
-        circ.print_faults()
+        # circ.print_outputs()
         print("=================")
-        print(circ.smgf)
-        print(circ.pmgf)
+        # circ.print_faults()
+        utils.fault_extractor(circ.smgf, circ.pmgf, circuit_input, fault_map, fault_table)
         print("=================")
+    # print(fault_table)
+    utils.plot_graph(fault_table)
 
 
 def test1():
@@ -295,3 +270,19 @@ def test2():
     circuit.print_outputs()
     circuit.print_faults()
     pass
+
+
+def test4(no_of_lines, no_of_gates):
+    ds = DataSet(no_of_lines, no_of_gates)  # 5 input lines and 6 gates
+    ds.generate_test_sets()
+    circ = Circuit(no_of_lines)
+    circ.circuit_maker(ds.gate_cascade)
+    fault_map = utils.map_pmgf_with_fault(ds.gate_cascade, no_of_lines)
+    fault_table = [[] for _ in range(2 ** no_of_lines)]
+    print('_______________________________________________________')
+    for circuit_input in range(2 ** no_of_lines):
+        circ.set_starting_data(circuit_input)
+        circ.circuit_user()
+        utils.fault_extractor(circ.smgf, circ.pmgf, circuit_input, fault_map, fault_table)
+    # print(fault_table)
+    utils.plot_graph(fault_table)

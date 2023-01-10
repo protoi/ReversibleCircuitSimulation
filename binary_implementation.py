@@ -239,7 +239,7 @@ def test0():
               {'target': 0b100, 'controls': 0b001}]  # 001 -> fault #12
     circ.circuit_maker(mydata)
 
-    fault_map = utils.map_pmgf_with_fault(mydata, no_of_lines)
+    fault_map = utils.map_fault_with_index(mydata)
     fault_table = [[] for _ in range(2 ** no_of_lines)]
     print('_______________________________________________________')
     for circuit_input in range(2 ** no_of_lines):
@@ -277,12 +277,13 @@ def test4(no_of_lines, no_of_gates):
     ds.generate_test_sets()
     circ = Circuit(no_of_lines)
     circ.circuit_maker(ds.gate_cascade)
-    fault_map = utils.map_pmgf_with_fault(ds.gate_cascade, no_of_lines)
-    fault_table = [[] for _ in range(2 ** no_of_lines)]
-    print('_______________________________________________________')
+    fault_map, no_of_total_faults = utils.map_fault_with_index(ds.gate_cascade)
+    fault_table = [{"smgf": [], "pmgf": []} for _ in range(2 ** no_of_lines)]
     for circuit_input in range(2 ** no_of_lines):
         circ.set_starting_data(circuit_input)
         circ.circuit_user()
         utils.fault_extractor(circ.smgf, circ.pmgf, circuit_input, fault_map, fault_table)
     # print(fault_table)
-    utils.plot_graph(fault_table)
+    # print(fault_map)
+    # print(no_of_total_faults - 1)
+    utils.plot_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1)

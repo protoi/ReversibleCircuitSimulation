@@ -2,7 +2,8 @@ import binary_implementation as binimp
 import integer_implementation as intimp
 
 if __name__ == "__main__":
-    binimp.test4(10, 50)  # no of lines, no of gates
+    binimp.test4(14, 500)  # no of lines, no of gates
+    # binimp.test0()
     # intimp.test0()
     # binimp.test0()
 

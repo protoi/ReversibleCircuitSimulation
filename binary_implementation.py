@@ -232,27 +232,29 @@ def test0():
     no_of_lines = 3
     no_of_gates = 5
     circ = Circuit(3)
-    mydata = [{'target': 0b001, 'controls': 0b110},  # 100 OR 010 -> fault #6 & 7
+    mydata = [{'target': 0b001, 'controls': 0b110},  # 010, 100 -> fault #6 & 7
               {'target': 0b001, 'controls': 0b010},  # 010 -> fault #8
               {'target': 0b001, 'controls': 0b100},  # 100 -> fault #9
-              {'target': 0b100, 'controls': 0b011},  # 010 OR 001 -> fault 10,11
+              {'target': 0b100, 'controls': 0b011},  # 001 OR 010 -> fault 10,11
               {'target': 0b100, 'controls': 0b001}]  # 001 -> fault #12
     circ.circuit_maker(mydata)
 
-    fault_map = utils.map_fault_with_index(mydata)
-    fault_table = [[] for _ in range(2 ** no_of_lines)]
+    fault_map, no_of_total_faults = utils.map_fault_with_index(mydata)
+    fault_table = [{"smgf": [], "pmgf": []} for _ in range(2 ** no_of_lines)]
     print('_______________________________________________________')
     for circuit_input in range(2 ** no_of_lines):
         # print(utils.display(circuit_input, no_of_lines))
         circ.set_starting_data(circuit_input)
         circ.circuit_user()
         # circ.print_outputs()
-        print("=================")
+        # print("=================")
         # circ.print_faults()
         utils.fault_extractor(circ.smgf, circ.pmgf, circuit_input, fault_map, fault_table)
-        print("=================")
-    # print(fault_table)
-    utils.plot_graph(fault_table)
+        # print("=================")
+    print(fault_table)
+    print(fault_map)
+    utils.fault_map_printer(fault_map, no_of_lines)
+    utils.plot_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1)
 
 
 def test1():
@@ -273,17 +275,21 @@ def test2():
 
 
 def test4(no_of_lines, no_of_gates):
-    ds = DataSet(no_of_lines, no_of_gates)  # 5 input lines and 6 gates
+    ds = DataSet(no_of_lines, no_of_gates)
     ds.generate_test_sets()
     circ = Circuit(no_of_lines)
     circ.circuit_maker(ds.gate_cascade)
+
     fault_map, no_of_total_faults = utils.map_fault_with_index(ds.gate_cascade)
     fault_table = [{"smgf": [], "pmgf": []} for _ in range(2 ** no_of_lines)]
+
     for circuit_input in range(2 ** no_of_lines):
         circ.set_starting_data(circuit_input)
         circ.circuit_user()
         utils.fault_extractor(circ.smgf, circ.pmgf, circuit_input, fault_map, fault_table)
+
     # print(fault_table)
     # print(fault_map)
     # print(no_of_total_faults - 1)
+
     utils.plot_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1)

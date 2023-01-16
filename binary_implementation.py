@@ -235,7 +235,7 @@ def test0():
     mydata = [{'target': 0b001, 'controls': 0b110},  # 010, 100 -> fault #6 & 7
               {'target': 0b001, 'controls': 0b010},  # 010 -> fault #8
               {'target': 0b001, 'controls': 0b100},  # 100 -> fault #9
-              {'target': 0b100, 'controls': 0b011},  # 001 OR 010 -> fault 10,11
+              {'target': 0b100, 'controls': 0b011},  # 001, 010 -> fault 10,11
               {'target': 0b100, 'controls': 0b001}]  # 001 -> fault #12
     circ.circuit_maker(mydata)
 
@@ -246,7 +246,7 @@ def test0():
         # print(utils.display(circuit_input, no_of_lines))
         circ.set_starting_data(circuit_input)
         circ.circuit_user()
-        # circ.print_outputs()
+        circ.print_outputs()
         # print("=================")
         # circ.print_faults()
         utils.fault_extractor(circ.smgf, circ.pmgf, circuit_input, fault_map, fault_table)

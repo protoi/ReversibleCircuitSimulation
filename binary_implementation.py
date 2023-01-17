@@ -83,7 +83,7 @@ class Circuit:
             It is a list of integers whose binary representation denote which control line can be identified.
 
     """
-    number_of_lines, cascade_of_gates, starting_data, outputs, smgf, pmgf = None, None, None, None, None, None
+    number_of_lines, cascade_of_gates, starting_data, outputs, smgf, pmgf, mmgf = None, None, None, None, None, None, None
 
     def __init__(self, number_of_lines: int):
         self.number_of_lines = number_of_lines  # number of lines in the circuit
@@ -117,9 +117,12 @@ class Circuit:
                     and have the same length as number of gates in the circuit.
                 pmgf: a shallow-copy of outputs
         '''
-        self.outputs = [0 for _ in range(len(self.cascade_of_gates))]
-        self.smgf = [False for _ in range(len(self.cascade_of_gates))]
+        no_of_gates = len(self.cascade_of_gates)
+        self.outputs = [0 for _ in range(no_of_gates)]
+        self.smgf = [False for _ in range(no_of_gates)]
         self.pmgf = copy.copy(self.outputs)
+        # self.mmgf = [(0, 0) for _ in range((no_of_gates * (no_of_gates - 1)) // 2)]
+        self.mmgf = []
 
         current_output = self.starting_data
 
@@ -140,6 +143,20 @@ class Circuit:
             # otherwise we check if it is a test for pmgf or not
             else:
                 self.pmgf[index] = self.generate_pmgf(current_input, gates)
+
+        # checking for mmgfs
+        for starting_gate in range(no_of_gates - 1):
+            for ending_gate in range(starting_gate + 1, no_of_gates):
+                output_after_first_gate_removed = self.outputs[starting_gate - 1]
+
+                # if first gate of circuit is removed, the input to ending_gate + 1 would be the original input
+                if starting_gate == 0:
+                    output_after_first_gate_removed = self.starting_data
+
+                # check for output of  starting_gate - 1 != output of ending_gate -> fault is detectable
+
+                if output_after_first_gate_removed != self.outputs[ending_gate]:
+                    self.mmgf.append((starting_gate, ending_gate))
 
     def generate_pmgf(self, current_input: int, gates: Gate):
         """
@@ -187,6 +204,7 @@ class Circuit:
     def print_faults(self):
         print(f'smgf:\n{self.smgf}')
         print(f'pmgf:\n{[utils.display(i, self.number_of_lines) for i in self.pmgf]}')
+        print(f'mmgf:\n{self.mmgf}')
 
 
 class DataSet:
@@ -240,7 +258,7 @@ def test0():
     circ.circuit_maker(mydata)
 
     fault_map, no_of_total_faults = utils.map_fault_with_index(mydata)
-    fault_table = [{"smgf": [], "pmgf": []} for _ in range(2 ** no_of_lines)]
+    fault_table = [{"smgf": [], "pmgf": [], "mmgf": []} for _ in range(2 ** no_of_lines)]
     print('_______________________________________________________')
     for circuit_input in range(2 ** no_of_lines):
         # print(utils.display(circuit_input, no_of_lines))
@@ -249,7 +267,7 @@ def test0():
         circ.print_outputs()
         # print("=================")
         # circ.print_faults()
-        utils.fault_extractor(circ.smgf, circ.pmgf, circuit_input, fault_map, fault_table)
+        utils.fault_extractor(circ.smgf, circ.pmgf, circ.mmgf, circuit_input, fault_map, fault_table)
         # print("=================")
     print(fault_table)
     print(fault_map)
@@ -281,12 +299,12 @@ def test4(no_of_lines, no_of_gates):
     circ.circuit_maker(ds.gate_cascade)
 
     fault_map, no_of_total_faults = utils.map_fault_with_index(ds.gate_cascade)
-    fault_table = [{"smgf": [], "pmgf": []} for _ in range(2 ** no_of_lines)]
+    fault_table = [{"smgf": [], "pmgf": [], "mmgf": []} for _ in range(2 ** no_of_lines)]
 
     for circuit_input in range(2 ** no_of_lines):
         circ.set_starting_data(circuit_input)
         circ.circuit_user()
-        utils.fault_extractor(circ.smgf, circ.pmgf, circuit_input, fault_map, fault_table)
+        utils.fault_extractor(circ.smgf, circ.pmgf, circ.mmgf, circuit_input, fault_map, fault_table)
 
     # print(fault_table)
     # print(fault_map)

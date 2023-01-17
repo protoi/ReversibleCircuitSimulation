@@ -45,8 +45,10 @@ def fault_map_printer(fault_map, control_lines):
     for index, (key, val) in enumerate(fault_map.items()):
         if isinstance(key, int):
             print(f"fault No.{val} = smgf for gate No.{key + 1}")
-        else:
+        elif isinstance(key[0], int):
             print(f"fault No.{val} = pmgf for missing control {display(key[1], control_lines)} at gate {key[0] + 1}")
+        else:
+            print(f"fault No.{val} = mmgf for gate range {key[0]}, {key[1]}")
 
 
 def map_fault_with_index(cascade_of_gates: list[dict]) -> tuple[dict[int | tuple[int, int], int], int]:
@@ -70,6 +72,7 @@ def map_fault_with_index(cascade_of_gates: list[dict]) -> tuple[dict[int | tuple
     """
     # count = len(cascade_of_gates) + 1  # we want to start numbering pmgfs after smgfs
     tempdict = {}
+
     count = 1
     for index in range(len(cascade_of_gates)):  # accommodating for smgf
         tempdict[index] = count
@@ -77,9 +80,13 @@ def map_fault_with_index(cascade_of_gates: list[dict]) -> tuple[dict[int | tuple
     for index, gate in enumerate(cascade_of_gates):  # accommodating for pmgf
         subparts = produce_multiples_of_2(gate['controls'])  # if input= 11010, output= [10000, 1000, 10]
         for s in subparts:
-            tempdict[(index, s)] = count
+            tempdict[(index, s)] = count  # (3,4)
             count += 1
-    # print(tempdict)
+
+    for starting_gate in range(len(cascade_of_gates) - 1):
+        for ending_gate in range(starting_gate + 1, len(cascade_of_gates)):
+            tempdict[(f'G{starting_gate}', f'G{ending_gate}')] = count
+            count += 1
 
     return tempdict, count
 
@@ -128,7 +135,7 @@ def bit_flipper(num: int, no_of_bits: int) -> int:
     return temp ^ num
 
 
-def fault_extractor(smgf: list[bool], pmgf: list[int], circuit_input: int, fault_map: dict,
+def fault_extractor(smgf: list[bool], pmgf: list[int], mmgf: list[tuple[int, int]], circuit_input: int, fault_map: dict,
                     fault_table: list[dict]) -> None:
     """
     Modifies fault_table so that fault_table[i] = {"smgf": [fault #s], "pmgf": [fault #s]}
@@ -161,6 +168,11 @@ def fault_extractor(smgf: list[bool], pmgf: list[int], circuit_input: int, fault
             continue
         fault_table[circuit_input]["pmgf"].append(fault_map.get((index, fault), 0))
 
+    for index, fault in enumerate(mmgf):
+        if fault != (0, 0):
+            temp_fault = (f'G{fault[0]}', f'G{fault[1]}')
+            fault_table[circuit_input]["mmgf"].append(fault_map.get(temp_fault, 0))
+
 
 def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total_faults: int) -> None:
     """
@@ -177,6 +189,7 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     fig, ax = plt.subplots(ncols=1)
     smgf_x, smgf_y = [], []
     pmgf_x, pmgf_y = [], []
+    mmgf_x, mmgf_y = [], []
 
     for i, sublist in enumerate(data):
         smgf_x.extend([i] * len(sublist["smgf"]))
@@ -185,16 +198,21 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
         pmgf_x.extend([i] * len(sublist["pmgf"]))
         pmgf_y.extend(sublist["pmgf"])
 
+        mmgf_x.extend([i] * len(sublist["mmgf"]))
+        mmgf_y.extend(sublist["mmgf"])
+
     plt.xlabel("input configuration (in binary)")
     plt.ylabel("Fault Number")
 
+    no_of_mmgf = ((no_of_gates) * (no_of_gates - 1)) // 2
     plt.title(f'''Fault vs Input graph for circuit with
     {no_of_gates} Gates and {no_of_lines} Control Lines.
     Total input combinations: {2 ** no_of_lines}.
-    Total faults: (smgf: {no_of_gates}, pmgf: {no_of_total_faults - no_of_gates}).''')
+    Total faults: (smgf: {no_of_gates}, pmgf: {no_of_total_faults - no_of_gates - no_of_mmgf}, mmgf: {no_of_mmgf}).''')
 
     ax.scatter(smgf_x, smgf_y, s=1, c='red', label="smgf")
     ax.scatter(pmgf_x, pmgf_y, s=1, c='blue', label="pmgf")
+    ax.scatter(mmgf_x, mmgf_y, s=1, c='green', label="mmgf")
 
     # to move the legend section outside the plot
     ax.legend(bbox_to_anchor=(1.01, 1), borderaxespad=0)

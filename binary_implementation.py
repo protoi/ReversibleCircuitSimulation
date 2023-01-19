@@ -64,6 +64,30 @@ class Gate:
         print(utils.display(self.controls, self.number_of_lines))
 
 
+def generate_pmgf_better(current_input: int, controls: int):
+    """
+        Example:
+        control =   1111 1100
+        input =     1010 1010
+        set answer's corresponding bit to 1 for every location where control was 1 but input was 0
+        which means answer = 0101 0100
+        but we want to drop any higher order pmgfs (any answer with more than 1 set bit)
+
+        :param current_input: input to the gate, represented by an integer.
+        :type current_input: int
+        :param controls: a binary number which denotes the current gate of the circuit.
+        :type controls: int
+        :return: which pmgf is being identified by the gate
+        :rtype:  int
+        """
+
+    answer = ~current_input & controls
+    if utils.count_set_bits(answer) > 1:  # counting set bit
+
+        return 0
+    return answer
+
+
 class Circuit:
     """Representation of a Reversible Circuit
 
@@ -84,6 +108,8 @@ class Circuit:
 
     """
     number_of_lines, cascade_of_gates, starting_data, outputs, smgf, pmgf, mmgf = None, None, None, None, None, None, None
+
+    # pmgf_new = None
 
     def __init__(self, number_of_lines: int):
         self.number_of_lines = number_of_lines  # number of lines in the circuit
@@ -116,83 +142,52 @@ class Circuit:
                 smgf: a list of booleans pre-initialized to be False 
                     and have the same length as number of gates in the circuit.
                 pmgf: a shallow-copy of outputs
+                mmgf: an empty list that will grow to no_of_gates C 2
         '''
         no_of_gates = len(self.cascade_of_gates)
         self.outputs = [0 for _ in range(no_of_gates)]
         self.smgf = [False for _ in range(no_of_gates)]
-        self.pmgf = copy.copy(self.outputs)
+        self.pmgf = [0 for _ in range(no_of_gates)]
+        # self.pmgf_new = copy.copy(self.outputs)
+
         # self.mmgf = [(0, 0) for _ in range((no_of_gates * (no_of_gates - 1)) // 2)]
         self.mmgf = []
 
         current_output = self.starting_data
 
-        for index, gates in enumerate(self.cascade_of_gates):
+        for index, gate in enumerate(self.cascade_of_gates):
             '''
                 iterating over gate cascade and using
                 the previous output of a gate as the input for the next gate
             '''
             current_input = copy.copy(current_output)
-            current_output = gates.generate_output(current_output)
+            current_output = gate.generate_output(current_output)
             self.outputs[index] = current_output
             '''
                 if every place where controls had a 1 bit, is also 1 in the input.
                 This is a test for smgf
             '''
-            if current_input & gates.controls == gates.controls:
+            if current_input & gate.controls == gate.controls:
                 self.smgf[index] = True
             # otherwise we check if it is a test for pmgf or not
             else:
-                self.pmgf[index] = self.generate_pmgf(current_input, gates)
+                # below line was faulty
+                # self.pmgf[index] = generate_pmgf(current_input, gate)
+                self.pmgf[index] = generate_pmgf_better(current_input, gate.controls)
 
         # checking for mmgfs
-        for starting_gate in range(no_of_gates - 1):
-            for ending_gate in range(starting_gate + 1, no_of_gates):
+        for starting_gate in range(no_of_gates - 1):  # where the gates go missing from
+            for ending_gate in range(starting_gate + 1, no_of_gates):  # upto which gate is everything missing
                 output_after_first_gate_removed = self.outputs[starting_gate - 1]
 
-                # if first gate of circuit is removed, the input to ending_gate + 1 would be the original input
+                # if 1st[0th index] gate goes missing, the circuits original input is propagated up to ending_gate+1
+
                 if starting_gate == 0:
                     output_after_first_gate_removed = self.starting_data
 
                 # check for output of  starting_gate - 1 != output of ending_gate -> fault is detectable
-
                 if output_after_first_gate_removed != self.outputs[ending_gate]:
                     self.mmgf.append((starting_gate, ending_gate))
-
-    def generate_pmgf(self, current_input: int, gates: Gate):
-        """
-        Example:
-        control =   1111 1100
-        input =     1010 1010
-        set answer's corresponding bit to 1 for every location where control was 1 but input was 0
-        which means answer = 0101 0100
-
-        :param current_input: input to the gate, represented by an integer.
-        :type current_input: int
-        :param gates: Gate object which denotes the current gate of the circuit.
-        :type gates: Gate
-        :return: which pmgf is being identified by the gate
-        :rtype:  int
-        """
-        temp_controls = gates.controls
-        bits_read = 0
-        answer = 0
-        flag = False
-
-        while temp_controls != 0 or current_input != 0:
-            isolator = 0b1
-            current_last = current_input & isolator  # extracting the last bit
-            gates_last = temp_controls & isolator  # extracting the last bit
-            if gates_last == 1 and current_last == 0:
-                if flag:  # this is done to remove higher order pmgfs, we only want 1st order pmgfs
-                    return 0b0
-                answer = answer | 2 ** bits_read
-                flag = True
-
-            temp_controls = temp_controls >> 1
-            current_input = current_input >> 1
-            bits_read += 1
-
-        return answer
 
     def print_outputs(self):
         print(f'for input data: {utils.display(self.starting_data, self.number_of_lines)}')
@@ -268,6 +263,39 @@ def test0():
         # print("=================")
         # circ.print_faults()
         utils.fault_extractor(circ.smgf, circ.pmgf, circ.mmgf, circuit_input, fault_map, fault_table)
+        print("pmgf")
+        print(circ.pmgf)
+        # print("new pmgf")
+        # print(circ.pmgf_new)
+        # print("=================")
+    print(fault_table)
+    print(fault_map)
+    utils.fault_map_printer(fault_map, no_of_lines)
+    utils.plot_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1)
+
+
+def test0_0():
+    no_of_lines = 4
+    no_of_gates = 1
+    circ = Circuit(1)
+    mydata = [{'target': 0b0001, 'controls': 0b1110}]  # 001 -> fault #12
+    circ.circuit_maker(mydata)
+
+    fault_map, no_of_total_faults = utils.map_fault_with_index(mydata)
+    fault_table = [{"smgf": [], "pmgf": [], "mmgf": []} for _ in range(2 ** no_of_lines)]
+    print('_______________________________________________________')
+    for circuit_input in range(2 ** no_of_lines):
+        # print(utils.display(circuit_input, no_of_lines))
+        circ.set_starting_data(circuit_input)
+        circ.circuit_user()
+        circ.print_outputs()
+        # print("=================")
+        # circ.print_faults()
+        utils.fault_extractor(circ.smgf, circ.pmgf, circ.mmgf, circuit_input, fault_map, fault_table)
+        print("pmgf")
+        print(circ.pmgf)
+        # print("new pmgf")
+        # print(circ.pmgf_new)
         # print("=================")
     print(fault_table)
     print(fault_map)
@@ -311,3 +339,51 @@ def test4(no_of_lines, no_of_gates):
     # print(no_of_total_faults - 1)
 
     utils.plot_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1)
+
+
+'''
+
+# this is after just changing the signature to accept an int and slapping njit on it:
+from numba import njit
+
+@njit
+def generate_pmgf_numba(current_input: int, temp_controls: int):
+    bits_read = 0
+    answer = 0
+    flag = False
+
+    while temp_controls != 0 or current_input != 0:
+        isolator = 0b1
+        current_last = current_input & isolator  # extracting the last bit
+        gates_last = temp_controls & isolator  # extracting the last bit
+        if gates_last == 1 and current_last == 0:
+            if flag:  # this is done to remove higher order pmgfs, we only want 1st order pmgfs (only a single 1 bit)
+                return 0b0
+            answer = answer | 2**bits_read
+            flag = True
+
+        temp_controls = temp_controls >> 1
+        current_input = current_input >> 1
+        bits_read += 1
+
+    return answer
+
+
+
+
+
+yeah, that seems to be just
+def generate_pmgf_simple(current_input: int, temp_controls: int) -> int:
+    res = ~current_input & temp_controls
+    if res.bit_count()>1:
+        return 0
+    return res
+at least, this hypothesis test was unable to find any falsifying examples:
+@given(st.integers(0,2**31-1), st.integers(0,2**31-1))
+def test_equiv(inp, cont):
+    res1 = generate_pmgf(inp, cont)
+    res2 = generate_pmgf_simple(inp, cont)
+    assert res1==res2, (res1,res2)
+
+
+'''

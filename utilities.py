@@ -85,7 +85,7 @@ def map_fault_with_index(cascade_of_gates: list[dict]) -> tuple[dict[int | tuple
 
     for starting_gate in range(len(cascade_of_gates) - 1):
         for ending_gate in range(starting_gate + 1, len(cascade_of_gates)):
-            tempdict[(f'G{starting_gate}', f'G{ending_gate}')] = count
+            tempdict[(f'G{starting_gate + 1}', f'G{ending_gate + 1}')] = count
             count += 1
 
     return tempdict, count
@@ -170,7 +170,7 @@ def fault_extractor(smgf: list[bool], pmgf: list[int], mmgf: list[tuple[int, int
 
     for index, fault in enumerate(mmgf):
         if fault != (0, 0):
-            temp_fault = (f'G{fault[0]}', f'G{fault[1]}')
+            temp_fault = (f'G{fault[0] + 1}', f'G{fault[1] + 1}')
             fault_table[circuit_input]["mmgf"].append(fault_map.get(temp_fault, 0))
 
 
@@ -204,15 +204,26 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     plt.xlabel("input configuration (in binary)")
     plt.ylabel("Fault Number")
 
-    no_of_mmgf = ((no_of_gates) * (no_of_gates - 1)) // 2
+    no_of_mmgf = (no_of_gates * (no_of_gates - 1)) // 2
+
     plt.title(f'''Fault vs Input graph for circuit with
     {no_of_gates} Gates and {no_of_lines} Control Lines.
     Total input combinations: {2 ** no_of_lines}.
     Total faults: (smgf: {no_of_gates}, pmgf: {no_of_total_faults - no_of_gates - no_of_mmgf}, mmgf: {no_of_mmgf}).''')
 
-    ax.scatter(smgf_x, smgf_y, s=1, c='red', label="smgf")
-    ax.scatter(pmgf_x, pmgf_y, s=1, c='blue', label="pmgf")
-    ax.scatter(mmgf_x, mmgf_y, s=1, c='green', label="mmgf")
+    dot_size = 1
+    # doesn't make sense if it crosses around 35 faults, it gets too cluttered
+    if no_of_total_faults <= 35:
+        plt.yticks(range(1, no_of_total_faults + 1))
+        dot_size = 20
+
+        # horizontal lines to separate smgf, pmgf and mmgf regions
+        ax.axhline(y=no_of_gates + 0.5, color='black', linestyle='dashed')
+        ax.axhline(y=no_of_total_faults - no_of_mmgf + 0.5, color='black', linestyle='dashed')
+
+    ax.scatter(smgf_x, smgf_y, s=dot_size, c='red', label="smgf")
+    ax.scatter(pmgf_x, pmgf_y, s=dot_size, c='blue', label="pmgf")
+    ax.scatter(mmgf_x, mmgf_y, s=dot_size, c='green', label="mmgf")
 
     # to move the legend section outside the plot
     ax.legend(bbox_to_anchor=(1.01, 1), borderaxespad=0)

@@ -83,7 +83,6 @@ def generate_pmgf_better(current_input: int, controls: int):
 
     answer = ~current_input & controls
     if utils.count_set_bits(answer) > 1:  # counting set bit
-
         return 0
     return answer
 
@@ -275,10 +274,10 @@ def test0():
 
 
 def test0_0():
-    no_of_lines = 4
+    no_of_lines = 5
     no_of_gates = 1
     circ = Circuit(1)
-    mydata = [{'target': 0b0001, 'controls': 0b1110}]  # 001 -> fault #12
+    mydata = [{'target': 0b00010, 'controls': 0b11101}]  # 001 -> fault #12
     circ.circuit_maker(mydata)
 
     fault_map, no_of_total_faults = utils.map_fault_with_index(mydata)

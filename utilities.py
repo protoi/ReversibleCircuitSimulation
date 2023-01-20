@@ -220,6 +220,7 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
         # horizontal lines to separate smgf, pmgf and mmgf regions
         ax.axhline(y=no_of_gates + 0.5, color='black', linestyle='dashed')
         ax.axhline(y=no_of_total_faults - no_of_mmgf + 0.5, color='black', linestyle='dashed')
+        plt.grid()
 
     ax.scatter(smgf_x, smgf_y, s=dot_size, c='red', label="smgf")
     ax.scatter(pmgf_x, pmgf_y, s=dot_size, c='blue', label="pmgf")

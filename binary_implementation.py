@@ -64,7 +64,7 @@ class Gate:
         print(utils.display(self.controls, self.number_of_lines))
 
 
-def generate_pmgf_better(current_input: int, controls: int):
+def generate_pmgf(current_input: int, controls: int):
     """
         Example:
         control =   1111 1100
@@ -79,10 +79,10 @@ def generate_pmgf_better(current_input: int, controls: int):
         :type controls: int
         :return: which pmgf is being identified by the gate
         :rtype:  int
-        """
+    """
 
     answer = ~current_input & controls
-    if utils.count_set_bits(answer) > 1:  # counting set bit
+    if answer.bit_count() > 1:  # counting set bit
         return 0
     return answer
 
@@ -141,7 +141,9 @@ class Circuit:
                 smgf: a list of booleans pre-initialized to be False 
                     and have the same length as number of gates in the circuit.
                 pmgf: a shallow-copy of outputs
-                mmgf: an empty list that will grow to no_of_gates C 2
+                mmgf: an empty list that will grow to (no_of_gatesC2) where every element is a 
+                    pair (starting gate, ending gate) such that this pair represents the range of gates that
+                    goes missing.
         '''
         no_of_gates = len(self.cascade_of_gates)
         self.outputs = [0 for _ in range(no_of_gates)]
@@ -167,12 +169,17 @@ class Circuit:
                 This is a test for smgf
             '''
             if current_input & gate.controls == gate.controls:
-                self.smgf[index] = True
+                self.smgf[index] = True  # need to append current input to this list instead of setting to true or false
+                '''
+                                                      7 = 00111
+                        {'target': 0b10000, 'controls': 0b00111},
+                        {'target': 0b01000, 'controls': 0b10111},
+                '''
+                print(f'----> for input {current_input}, gate# {index + 1} smgf is handled')
             # otherwise we check if it is a test for pmgf or not
             else:
                 # below line was faulty
-                # self.pmgf[index] = generate_pmgf(current_input, gate)
-                self.pmgf[index] = generate_pmgf_better(current_input, gate.controls)
+                self.pmgf[index] = generate_pmgf(current_input, gate.controls)
 
         # checking for mmgfs
         for starting_gate in range(no_of_gates - 1):  # where the gates go missing from
@@ -180,7 +187,6 @@ class Circuit:
                 output_after_first_gate_removed = self.outputs[starting_gate - 1]
 
                 # if 1st[0th index] gate goes missing, the circuits original input is propagated up to ending_gate+1
-
                 if starting_gate == 0:
                     output_after_first_gate_removed = self.starting_data
 
@@ -275,9 +281,12 @@ def test0():
 
 def test0_0():
     no_of_lines = 5
-    no_of_gates = 1
-    circ = Circuit(1)
-    mydata = [{'target': 0b00010, 'controls': 0b11101}]  # 001 -> fault #12
+    no_of_gates = 2
+    circ = Circuit(no_of_gates)
+    mydata = [
+        {'target': 0b10000, 'controls': 0b00111},
+        {'target': 0b01000, 'controls': 0b10111},
+    ]  # 001 -> fault #12
     circ.circuit_maker(mydata)
 
     fault_map, no_of_total_faults = utils.map_fault_with_index(mydata)

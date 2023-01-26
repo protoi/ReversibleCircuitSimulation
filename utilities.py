@@ -1,25 +1,5 @@
 import matplotlib.pyplot as plt
 
-nibble_lookup = [0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4]
-
-
-def count_set_bits(num: int) -> int:
-    """
-    counts number of set bits in nums binary representation
-    :param num: binary number for whose set bits are to be counted.
-    :type num: int
-    :return: number of set bits in the binary number
-    :rtype: int
-    """
-    count = 0
-    if num == 0:
-        return nibble_lookup[0]
-    while num != 0:
-        nibble = num & 0b1111
-        count += nibble_lookup[nibble]
-        num = num >> 4
-    return count
-
 
 def produce_multiples_of_2(n: int) -> list[int]:
     """
@@ -101,7 +81,7 @@ def counter_controls(cascade_of_gates: list[dict]) -> int:
     """
     counter = 0
     for gate in cascade_of_gates:
-        counter += count_set_bits(gate['controls'])
+        counter += (gate['controls']).bit_count()
     return counter
 
 
@@ -213,14 +193,18 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
 
     dot_size = 1
     # doesn't make sense if it crosses around 35 faults, it gets too cluttered
-    if no_of_total_faults <= 35:
+    if no_of_total_faults <= 50:
         plt.yticks(range(1, no_of_total_faults + 1))
-        dot_size = 20
+        plt.xticks(range(0, 1 << no_of_lines))
+
+        dot_size = 100
 
         # horizontal lines to separate smgf, pmgf and mmgf regions
         ax.axhline(y=no_of_gates + 0.5, color='black', linestyle='dashed')
         ax.axhline(y=no_of_total_faults - no_of_mmgf + 0.5, color='black', linestyle='dashed')
         plt.grid()
+        ax.set_axisbelow(True)
+        fig.set_size_inches(10, 10)
 
     ax.scatter(smgf_x, smgf_y, s=dot_size, c='red', label="smgf")
     ax.scatter(pmgf_x, pmgf_y, s=dot_size, c='blue', label="pmgf")

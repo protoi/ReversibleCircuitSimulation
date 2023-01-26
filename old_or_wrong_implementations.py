@@ -40,3 +40,26 @@ def generate_pmgf(current_input: int, gate):
     print("answer", answer)
 
     return answer
+
+
+# USE n.bit_count() instead, almost 10 times faster than this
+
+nibble_lookup = [0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4]
+
+
+def count_set_bits(num: int) -> int:
+    """
+    counts number of set bits in nums binary representation
+    :param num: binary number for whose set bits are to be counted.
+    :type num: int
+    :return: number of set bits in the binary number
+    :rtype: int
+    """
+    count = 0
+    if num == 0:
+        return nibble_lookup[0]
+    while num != 0:
+        nibble = num & 0b1111
+        count += nibble_lookup[nibble]
+        num = num >> 4
+    return count

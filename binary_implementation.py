@@ -40,7 +40,7 @@ class Gate:
         """
 
         # inverted_target AND input will set the bit at target location to 0
-        masked_input = self.inverted_target & input_lines
+        masked_input = input_lines
         viable_input = masked_input & self.controls
         '''
             when viable_input will be exactly equal to controls if
@@ -169,11 +169,12 @@ class Circuit:
                 This is a test for smgf
             '''
             if current_input & gate.controls == gate.controls:
+                print(f'input -> {utils.display(current_input,5)}, controls -> {utils.display(gate.controls, 5)}, output -> {(utils.display(current_output, 5))}')
                 self.smgf[index] = True  # need to append current input to this list instead of setting to true or false
                 '''
                                                       7 = 00111
-                        {'target': 0b10000, 'controls': 0b00111},
-                        {'target': 0b01000, 'controls': 0b10111},
+                        {'target': 0b10000, 'controls': 0b00111}, -> 0b10111
+                        {'target': 0b01000, 'controls': 0b10111}, -> 0b11111
                 '''
                 print(f'----> for input {current_input}, gate# {index + 1} smgf is handled')
             # otherwise we check if it is a test for pmgf or not
@@ -302,6 +303,8 @@ def test0_0():
         utils.fault_extractor(circ.smgf, circ.pmgf, circ.mmgf, circuit_input, fault_map, fault_table)
         print("pmgf")
         print(circ.pmgf)
+        print("SMGF:")
+        print(circ.smgf)
         # print("new pmgf")
         # print(circ.pmgf_new)
         # print("=================")

@@ -111,7 +111,7 @@ def bit_flipper(num: int, no_of_bits: int) -> int:
     :return: a flipped version of num
     :rtype: int
     """
-    temp = 2 ** (no_of_bits + 1) - 1
+    temp = (1 << no_of_bits) - 1
     return temp ^ num
 
 
@@ -142,7 +142,6 @@ def fault_extractor(smgf: list[bool], pmgf: list[int], mmgf: list[tuple[int, int
     for index, fault in enumerate(smgf):
         if fault:
             fault_table[circuit_input]["smgf"].append(fault_map.get(index, 0))
-            break
     for index, fault in enumerate(pmgf):
         if fault == 0b0:
             continue
@@ -197,7 +196,7 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
         plt.yticks(range(1, no_of_total_faults + 1))
         plt.xticks(range(0, 1 << no_of_lines))
 
-        dot_size = 100
+        dot_size = 200
 
         # horizontal lines to separate smgf, pmgf and mmgf regions
         ax.axhline(y=no_of_gates + 0.5, color='black', linestyle='dashed')
@@ -206,12 +205,12 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
         ax.set_axisbelow(True)
         fig.set_size_inches(10, 10)
 
-    ax.scatter(smgf_x, smgf_y, s=dot_size, c='red', label="smgf")
-    ax.scatter(pmgf_x, pmgf_y, s=dot_size, c='blue', label="pmgf")
-    ax.scatter(mmgf_x, mmgf_y, s=dot_size, c='green', label="mmgf")
+    ax.scatter(mmgf_x, mmgf_y, s=dot_size, c='#00539CFF', label="mmgf")
+    ax.scatter(pmgf_x, pmgf_y, s=dot_size, c='#006B38FF', label="pmgf")
+    ax.scatter(smgf_x, smgf_y, s=dot_size, c='#FF3EA5FF', label="smgf")
 
     # to move the legend section outside the plot
-    ax.legend(bbox_to_anchor=(1.01, 1), borderaxespad=0)
+    ax.legend(bbox_to_anchor=(1.15, 1), borderaxespad=0)
 
     fig.tight_layout()
     fig.subplots_adjust(right=0.85)

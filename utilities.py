@@ -120,6 +120,8 @@ def fault_extractor(smgf: list[bool], pmgf: list[int], mmgf: list[tuple[int, int
     """
     Modifies fault_table so that fault_table[i] = {"smgf": [fault #s], "pmgf": [fault #s]}
 
+    :param mmgf: a list of integer tuples representing the starting and ending gates from which gates have gone missing.
+    :type mmgf: list[tuple[int, int]]
     :param smgf: A list of length = No of gates in circuit.
         If smgf[G]  = True, current input catches a smgf in that Gth gate.
     :type smgf: list[boolean] # I could optimize this by turning smgf into a binary number instead
@@ -156,6 +158,8 @@ def fault_extractor(smgf: list[bool], pmgf: list[int], mmgf: list[tuple[int, int
 def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total_faults: int) -> None:
     """
     plots the fault vs input graph
+    :param no_of_total_faults: total possible faults in a circuit: smgf + pmgf + mmgf
+    :type no_of_total_faults: int
     :param data: a fault table. Each input maps to smgf and pmgf faults they detect.
     :type data: list[dict]
     :param no_of_lines: number of lines in the circuit.

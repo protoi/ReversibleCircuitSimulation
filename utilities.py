@@ -169,6 +169,7 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     :return: None
     :rtype: None
     """
+
     fig, ax = plt.subplots(ncols=1)
     smgf_x, smgf_y = [], []
     pmgf_x, pmgf_y = [], []
@@ -220,3 +221,117 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     fig.subplots_adjust(right=0.85)
 
     plt.show()
+
+
+def save_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total_faults: int,
+               file_name: str) -> None:
+    """
+    plots the fault vs input graph
+    :param no_of_total_faults: total possible faults in a circuit: smgf + pmgf + mmgf
+    :type no_of_total_faults: int
+    :param data: a fault table. Each input maps to smgf and pmgf faults they detect.
+    :type data: list[dict]
+    :param no_of_lines: number of lines in the circuit.
+    :type no_of_lines: int
+    :param no_of_gates: number of gates in the circuit.
+    :type no_of_gates: int
+    :param file_name: name of file to be written to.
+    :type file_name: str
+    :return: None
+    :rtype: None
+    """
+    fig, ax = plt.subplots(ncols=1)
+    smgf_x, smgf_y = [], []
+    pmgf_x, pmgf_y = [], []
+    mmgf_x, mmgf_y = [], []
+
+    for i, sublist in enumerate(data):
+        smgf_x.extend([i] * len(sublist["smgf"]))
+        smgf_y.extend(sublist["smgf"])
+
+        pmgf_x.extend([i] * len(sublist["pmgf"]))
+        pmgf_y.extend(sublist["pmgf"])
+
+        mmgf_x.extend([i] * len(sublist["mmgf"]))
+        mmgf_y.extend(sublist["mmgf"])
+
+    plt.xlabel("input configuration (in binary)")
+    plt.ylabel("Fault Number")
+
+    no_of_mmgf = (no_of_gates * (no_of_gates - 1)) // 2
+
+    plt.title(f'''{file_name}
+    Fault vs Input graph for circuit with
+    {no_of_gates} Gates and {no_of_lines} Control Lines.
+    Total input combinations: {2 ** no_of_lines}.
+    Total faults: (smgf: {no_of_gates}, pmgf: {no_of_total_faults - no_of_gates - no_of_mmgf}, mmgf: {no_of_mmgf}).''')
+
+    dot_size = 1
+    # doesn't make sense if it crosses around 35 faults, it gets too cluttered
+    if no_of_total_faults <= 50:
+        plt.yticks(range(1, no_of_total_faults + 1))
+        plt.xticks(range(0, 1 << no_of_lines))
+
+        dot_size = 200
+
+        # horizontal lines to separate smgf, pmgf and mmgf regions
+        ax.axhline(y=no_of_gates + 0.5, color='black', linestyle='dashed')
+        ax.axhline(y=no_of_total_faults - no_of_mmgf + 0.5, color='black', linestyle='dashed')
+        plt.grid()
+        ax.set_axisbelow(True)
+        fig.set_size_inches(10, 10)
+
+    ax.scatter(mmgf_x, mmgf_y, s=dot_size, c='#00539CFF', label="mmgf")
+    ax.scatter(pmgf_x, pmgf_y, s=dot_size, c='#006B38FF', label="pmgf")
+    ax.scatter(smgf_x, smgf_y, s=dot_size, c='#FF3EA5FF', label="smgf")
+
+    # to move the legend section outside the plot
+    ax.legend(bbox_to_anchor=(1.15, 1), borderaxespad=0)
+
+    fig.tight_layout()
+    fig.subplots_adjust(right=0.85)
+
+    plt.savefig(f"./RESULTS/FAULTS/{file_name}_FAULTS.png")
+    fig.clear()
+    plt.close(fig)
+
+    print(f"{file_name} saved")
+
+
+def save_circuit(circuit_data: list[dict], no_of_lines: int, no_of_gates: int, file_name: str) -> None:
+    control_points_x, control_points_y = [], []
+    target_points_x, target_points_y = [], []
+
+    fig, ax = plt.subplots(ncols=1)
+
+    for gate_number, gate in enumerate(circuit_data):
+        for control_number, control in enumerate(gate["controls"][::-1]):
+            if control == "1":
+                control_points_y.append(control_number + 1)
+                control_points_x.append(gate_number + 1)
+        for target_number, target in enumerate(gate["target"][::-1]):
+            if target == "1":
+                target_points_y.append(target_number + 1)
+                target_points_x.append(gate_number + 1)
+                break
+
+    [plt.axvline(x=i, linestyle="-") for i in range(1, no_of_gates + 1)]
+    [plt.axhline(y=i, linestyle="-") for i in range(1, no_of_lines + 1)]
+
+    plt.scatter(control_points_x, control_points_y, s=300)
+    plt.scatter(target_points_x, target_points_y, s=500)
+
+    plt.ylabel("Input")
+    plt.xlabel("Gate No.")
+
+    plt.yticks(range(0, max(no_of_lines, no_of_gates) + 2))
+    plt.xticks(range(0, max(no_of_lines, no_of_gates) + 2))
+
+    plt.title(file_name)
+
+    plt.savefig(f"./RESULTS/CIRCUITS/{file_name}_CONFIG.png")
+    fig.clear()
+    plt.close(fig)
+    print(f"{file_name} saved")
+
+    pass

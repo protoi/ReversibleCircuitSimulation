@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Circuit #1",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b00111"
+      },
+      {
+        "target": "0b01000",
+        "controls": "0b10111"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 2
+    }
+  }
+]

@@ -1,3 +1,5 @@
+import json
+
 import matplotlib.pyplot as plt
 
 
@@ -324,8 +326,8 @@ def save_circuit(circuit_data: list[dict], no_of_lines: int, no_of_gates: int, f
     plt.ylabel("Input")
     plt.xlabel("Gate No.")
 
-    plt.yticks(range(0, max(no_of_lines, no_of_gates) + 2))
-    plt.xticks(range(0, max(no_of_lines, no_of_gates) + 2))
+    plt.yticks(range(0, no_of_lines + 2))
+    plt.xticks(range(0, max(no_of_gates, 5) + 2))
 
     plt.title(file_name)
 
@@ -335,3 +337,8 @@ def save_circuit(circuit_data: list[dict], no_of_lines: int, no_of_gates: int, f
     print(f"{file_name} saved")
 
     pass
+
+
+def save_faults_json(fault_table: list[dict], file_name: str) -> None:
+    with open(f"./RESULTS/JSONS/{file_name}_JSON.json", "w") as write:
+        json.dump(fault_table, write, indent=2)

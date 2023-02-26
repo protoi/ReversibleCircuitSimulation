@@ -47,18 +47,18 @@ def simulate_circuit(circuit_data: dict) -> None:
     :rtype: None
     """
     circuit_name = circuit_data["name"]
+
     no_of_lines = circuit_data["circuit_specs"]["lines"]
     no_of_gates = circuit_data["circuit_specs"]["gates"]
 
     circuit_layout = circuit_data["circuit_layout"]
 
     # we will be passing in the string representation of the binary numbers instead, easier to work with
+    # saving a visual representation of the circuit
     utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name)
 
     # turning "0b111" into 0b111, it was stored as a string in JSON format
     circuit_layout_corrected = list(map(fix_target_and_controls, circuit_layout))
-
-    # saving a visual representation of the circuit
 
     # creating the circuit
     circuit = binimp.Circuit(no_of_gates)
@@ -72,6 +72,7 @@ def simulate_circuit(circuit_data: dict) -> None:
     # filling the fault table, which input config produces which smgf, pmgf and mmgf fault
     fault_table = [{"smgf": [], "pmgf": [], "mmgf": []} for _ in range(1 << no_of_lines)]
 
+    # iterating over all input combinations -> 2 ^ no_of_lines
     for circuit_input in range(1 << no_of_lines):
         # setting a circuits input
         circuit.set_starting_data(circuit_input)
@@ -82,6 +83,9 @@ def simulate_circuit(circuit_data: dict) -> None:
 
     # saving the fault mappings
     utils.save_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1, circuit_name)
+
+    # saving the fault mappings as a json
+    utils.save_faults_json(fault_table, circuit_name)
 
 
 def runner() -> None:

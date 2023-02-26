@@ -15,5 +15,82 @@
       "lines": 5,
       "gates": 2
     }
+  },
+  {
+    "name": "Circuit #2",
+    "circuit_layout": [
+      {
+        "target": "0b0100",
+        "controls": "0b0001"
+      },
+      {
+        "target": "0b0001",
+        "controls": "0b0010"
+      },
+      {
+        "target": "0b0010",
+        "controls": "0b0001"
+      },
+      {
+        "target": "0b0010",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0011"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0111"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0101"
+      },
+      {
+        "target": "0b0001",
+        "controls": "0b1110"
+      },
+      {
+        "target": "0b0010",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0001"
+      },
+      {
+        "target": "0b0001",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b0001",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0001"
+      },
+      {
+        "target": "0b0010",
+        "controls": "0b0100"
+      },
+      {
+        "target": "0b0100",
+        "controls": "0b0010"
+      },
+      {
+        "target": "0b0100",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 17
+    }
   }
 ]

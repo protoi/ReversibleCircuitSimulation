@@ -92,5 +92,124 @@
       "lines": 4,
       "gates": 17
     }
+  },
+  {
+    "name": "Circuit #3",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b0000"
+      },
+      {
+        "target": "0b0100",
+        "controls": "0b0000"
+      },
+      {
+        "target": "0b0010",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b0100",
+        "controls": "0b0000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0001"
+      },
+      {
+        "target": "0b0001",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b0001",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 9
+    }
+  },
+  {
+    "name": "Circuit #4",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b011"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b001"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b001"
+      },
+      {
+        "target": "0b010",
+        "controls": "0b001"
+      },
+      {
+        "target": "0b010",
+        "controls": "0b000"
+      },
+      {
+        "target": "0b001",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b001",
+        "controls": "0b100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #5",
+    "circuit_layout": [
+      {
+        "target": "0b001",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b001",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b010",
+        "controls": "0b000"
+      },
+      {
+        "target": "0b010",
+        "controls": "0b001"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b001"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b001"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b011"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 7
+    }
   }
 ]

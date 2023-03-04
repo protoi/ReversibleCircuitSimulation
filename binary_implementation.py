@@ -1,5 +1,6 @@
 import copy
 import random
+
 import utilities as utils
 
 
@@ -156,6 +157,9 @@ class Circuit:
 
         current_output = self.starting_data
 
+        # UNCOMMENT FOR STEP-WISE CIRCUIT INPUT
+        # print(f"INPUT: {current_output}")
+
         for index, gate in enumerate(self.cascade_of_gates):
             '''
                 iterating over gate cascade and using
@@ -163,13 +167,16 @@ class Circuit:
             '''
             current_input = copy.copy(current_output)
             current_output = gate.generate_output(current_output)
+
+            # UNCOMMENT FOR STEP-WISE CIRCUIT OUTPUT
+            # print(f"{index+1} OUTPUT: {current_output}")
+
             self.outputs[index] = current_output
             '''
                 if every place where controls had a 1 bit, is also 1 in the input.
                 This is a test for smgf
             '''
             if current_input & gate.controls == gate.controls:
-                # print(f'input -> {utils.display(current_input,5)}, controls -> {utils.display(gate.controls, 5)}, output -> {(utils.display(current_output, 5))}')
                 self.smgf[index] = True  # need to append current input to this list instead of setting to true or false
                 '''
                                                       7 = 00111

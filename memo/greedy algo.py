@@ -1,6 +1,6 @@
 import json
 
-with open("../RESULTS/JSONS/Circuit #4_JSON.json") as data:
+with open("../RESULTS/JSONS/Circuit #6_JSON.json") as data:
     table = json.load(data)
 
 # list(
@@ -16,12 +16,14 @@ restructured_table = [
 
 print([x["faults"] for x in restructured_table])
 
+
+
 reverse_sorted_by_elements = sorted(restructured_table, reverse=True, key=lambda elem: len(elem["faults"]))
 
 # print(reverse_sorted_by_elements)
 
 print([x["circuit_input"] for x in reverse_sorted_by_elements])
-needed = set(x for x in range(1, 36))
+# needed = set(x for x in range(1, 36))
 
 selection = set()
 answers = []
@@ -34,9 +36,9 @@ while len(reverse_sorted_by_elements) != 0:
 
     # push everything inside of best_for_now into the selection
     selection.update(best_for_now)
-    print(f'still required:\n{needed.difference(selection)}')
+    # print(f'still required:\n{needed.difference(selection)}')
 
-    # setting the first element to None because everything in it has been selected anyways
+    # setting the first element to None because everything in it has been selected anyway
     for index, element in enumerate(reverse_sorted_by_elements):
         # removing picked elements
         reverse_sorted_by_elements[index]["faults"] = element["faults"].difference(best_for_now)

@@ -1,6 +1,6 @@
 import json
 
-with open("../RESULTS/JSONS/Circuit #6_JSON.json") as data:
+with open("../RESULTS/JSONS/Circuit #7_JSON.json") as data:
     table = json.load(data)
 
 # list(
@@ -16,7 +16,9 @@ restructured_table = [
 
 print([x["faults"] for x in restructured_table])
 
-
+# only done to store inputs for the c++ code
+with open("./restructured_table.json", "w") as table_file:
+    print([x["faults"] for x in restructured_table], file=table_file)
 
 reverse_sorted_by_elements = sorted(restructured_table, reverse=True, key=lambda elem: len(elem["faults"]))
 

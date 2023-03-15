@@ -297,7 +297,7 @@ def save_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     fig.clear()
     plt.close(fig)
 
-    print(f"{file_name} saved")
+    print(f"{file_name} json data saved")
 
 
 def save_circuit(circuit_data: list[dict], no_of_lines: int, no_of_gates: int, file_name: str) -> None:
@@ -334,7 +334,7 @@ def save_circuit(circuit_data: list[dict], no_of_lines: int, no_of_gates: int, f
     plt.savefig(f"./RESULTS/CIRCUITS/{file_name}_CONFIG.png")
     fig.clear()
     plt.close(fig)
-    print(f"{file_name} saved")
+    print(f"{file_name} config saved")
 
     pass
 

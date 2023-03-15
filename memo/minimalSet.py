@@ -1,4 +1,5 @@
 import json
+from functools import lru_cache
 
 with open("../RESULTS/JSONS/Circuit #10_dense_JSON.json") as data:
     table = json.load(data)
@@ -11,16 +12,18 @@ no_of_lines = len(restructured_table)
 combinations = []
 
 
+@lru_cache
 def gen_combinations(selection, index):
     if index == no_of_lines:
         combinations.append(selection)
         return
 
     gen_combinations(selection, index + 1)
-    gen_combinations([*selection, index], index + 1)
+    gen_combinations((*selection, index), index + 1)
 
 
-gen_combinations([], 0)
+# arr = [1,2,3,4,5], n = 6 -> [*ar, n] = [1,2,3,4,5,6]
+gen_combinations((), 0)
 yields = []
 
 for combos in combinations:

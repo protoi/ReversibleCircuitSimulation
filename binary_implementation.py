@@ -71,7 +71,7 @@ def generate_pmgf(current_input: int, controls: int):
         control =   1111 1100
         input =     1010 1010
         set answer's corresponding bit to 1 for every location where control was 1 but input was 0
-        which means answer = 0101 0100
+        which means answer = 0101 0100,
         but we want to drop any higher order pmgfs (any answer with more than 1 set bit)
 
         :param current_input: input to the gate, represented by an integer.

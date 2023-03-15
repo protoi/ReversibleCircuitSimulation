@@ -1,0 +1,123 @@
+[
+  {
+    "circuit_name": "Circuit #1",
+    "minimal_set": [
+      31,
+      30,
+      29,
+      27,
+      15
+    ]
+  },
+  {
+    "circuit_name": "Circuit #2",
+    "minimal_set": [
+      6,
+      10,
+      12,
+      11,
+      14,
+      15
+    ]
+  },
+  {
+    "circuit_name": "Circuit #3",
+    "minimal_set": [
+      10,
+      3,
+      5,
+      6,
+      2,
+      11
+    ]
+  },
+  {
+    "circuit_name": "Circuit #4",
+    "minimal_set": [
+      6,
+      7,
+      1,
+      3
+    ]
+  },
+  {
+    "circuit_name": "Circuit #5",
+    "minimal_set": [
+      5,
+      3,
+      1,
+      7
+    ]
+  },
+  {
+    "circuit_name": "Circuit #6",
+    "minimal_set": [
+      15,
+      10,
+      7,
+      9,
+      6
+    ]
+  },
+  {
+    "circuit_name": "Circuit #7",
+    "minimal_set": [
+      15,
+      7,
+      10,
+      13,
+      5,
+      14
+    ]
+  },
+  {
+    "circuit_name": "Circuit #8",
+    "minimal_set": [
+      23,
+      25,
+      15,
+      24
+    ]
+  },
+  {
+    "circuit_name": "Circuit #9",
+    "minimal_set": [
+      31,
+      25,
+      21,
+      29,
+      15
+    ]
+  },
+  {
+    "circuit_name": "Circuit #9_repeated",
+    "minimal_set": [
+      31,
+      25,
+      29,
+      21,
+      23,
+      15
+    ]
+  },
+  {
+    "circuit_name": "Circuit #10_sparse",
+    "minimal_set": [
+      27,
+      29,
+      15
+    ]
+  },
+  {
+    "circuit_name": "Circuit #10_dense",
+    "minimal_set": [
+      29,
+      27,
+      30,
+      19,
+      15,
+      23,
+      25
+    ]
+  }
+]

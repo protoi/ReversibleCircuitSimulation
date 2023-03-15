@@ -1,6 +1,6 @@
 import json
 
-with open("../RESULTS/JSONS/Circuit #10_dense_JSON.json") as data:
+with open("../RESULTS/JSONS/Circuit #10_sparse_JSON.json") as data:
     table = json.load(data)
 
 # list(

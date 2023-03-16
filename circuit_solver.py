@@ -34,11 +34,45 @@ def fix_target_and_controls(t_and_c):
     :return: dictionary of format {"target": 0bxyx, "controls": 0byxx}, notice how they are not strings anymore
     :rtype: dict
     """
-    return {"target": string_to_binary(t_and_c["target"]),
-            "controls": string_to_binary(t_and_c["controls"])}
+    return {"target": string_to_binary(t_and_c["target"]), "controls": string_to_binary(t_and_c["controls"])}
 
 
-def simulate_circuit(circuit_data: dict) -> None:
+def greedy_set_cover(fault_data):
+    """
+    Greedily picks circuit inputs so that at the end, the inputs cover every single fault possible for a given circuit
+    :param fault_data: (input <-> fault) mapping for a circuit
+    :type fault_data: dict[int, set[int]
+    :return: an array of input values for the circuit for which all faults will be covered
+    :rtype: list[int]
+    """
+
+    restructured_table = [
+        {"circuit_input": index, "faults": {*circuit_input["smgf"], *circuit_input["pmgf"], *circuit_input["mmgf"]}} for
+        index, circuit_input in enumerate(fault_data)]
+
+    reverse_sorted_table = sorted(restructured_table, reverse=True, key=lambda elem: len(elem["faults"]))
+
+    selection = set()
+    answer = []
+
+    while len(reverse_sorted_table) > 0:
+        most_faults_identified = reverse_sorted_table[0]["faults"]
+        answer.append(reverse_sorted_table[0]["circuit_input"])
+
+        selection.update(most_faults_identified)
+
+        for index, element in enumerate(reverse_sorted_table):
+            reverse_sorted_table[index]["faults"] = element["faults"].difference(most_faults_identified)
+            if len(reverse_sorted_table[index]["faults"]) == 0:
+                reverse_sorted_table[index] = None
+
+        reverse_sorted_table = list(filter(lambda x: x is not None, reverse_sorted_table))
+        reverse_sorted_table = sorted(reverse_sorted_table, reverse=True, key=lambda elem: len(elem["faults"]))
+
+    return answer
+
+
+def simulate_circuit(circuit_data: dict) -> dict:
     """
     building and running a certain circuit and saving the visualization of the circuit, and it's fault mappings
     :param circuit_data: dicts containing control and target information, no of lines, gates and circuit name
@@ -87,6 +121,10 @@ def simulate_circuit(circuit_data: dict) -> None:
     # saving the fault mappings as a json
     utils.save_faults_json(fault_table, circuit_name)
 
+    fault_data_set_covered = greedy_set_cover(fault_table)
+
+    return {'circuit_name': circuit_name, 'minimal_set_inefficient': fault_data_set_covered}
+
 
 def runner() -> None:
     """
@@ -95,4 +133,7 @@ def runner() -> None:
     :rtype: None
     """
     circuit_data = read_file()
-    list(map(simulate_circuit, circuit_data))
+    minimal_sets = list(map(simulate_circuit, circuit_data))
+
+    with open('./RESULTS/MINIMAL_SETS/old_greedy_algo.json', 'w') as file:
+        json.dump(minimal_sets, file, indent=2)

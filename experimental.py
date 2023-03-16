@@ -125,7 +125,8 @@ def simulate_circuit(circuit_data: dict) -> dict:
     circuit_layout = circuit_data["circuit_layout"]
 
     # saving a graphical representation of the circuit
-    utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name)
+    # OPTIONAL if running with circuit_solver.runner()
+    # utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name)
 
     circuit_layout_bin_string_to_integer = list(map(fix_target_and_controls, circuit_layout))
 
@@ -153,10 +154,7 @@ def experimental_runner() -> None:
     :rtype: None
     """
     circuit_data = read_file()
-    minimal_sets = list(map(simulate_circuit, circuit_data))  # simulate_circuit(circuit_data[11])
+    minimal_sets = list(map(simulate_circuit, circuit_data))
 
     with open("./RESULTS/MINIMAL_SETS/mini_set.json", "w") as file:
         json.dump(minimal_sets, file, indent=2)
-
-
-experimental_runner()

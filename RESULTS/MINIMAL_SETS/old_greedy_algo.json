@@ -2,120 +2,902 @@
   {
     "circuit_name": "Circuit #1",
     "minimal_set_inefficient": [
-      7,
-      19,
-      21,
-      22,
-      23
+      51,
+      47,
+      61,
+      31,
+      63,
+      46
     ]
   },
   {
     "circuit_name": "Circuit #2",
     "minimal_set_inefficient": [
+      0,
       1,
-      10,
-      11,
-      6,
-      3,
-      12,
-      15
+      2
     ]
   },
   {
     "circuit_name": "Circuit #3",
     "minimal_set_inefficient": [
-      1,
-      12,
+      27,
+      23,
+      9,
       11,
-      15,
-      2,
-      5
+      31,
+      25
     ]
   },
   {
     "circuit_name": "Circuit #4",
     "minimal_set_inefficient": [
-      6,
-      7,
-      1,
-      3
+      12,
+      10,
+      14
     ]
   },
   {
     "circuit_name": "Circuit #5",
     "minimal_set_inefficient": [
-      5,
-      3,
-      1,
-      7
+      4,
+      2,
+      7,
+      6
     ]
   },
   {
     "circuit_name": "Circuit #6",
     "minimal_set_inefficient": [
-      13,
-      3,
-      10,
-      11
+      29,
+      23,
+      44,
+      31,
+      47,
+      61,
+      41
     ]
   },
   {
     "circuit_name": "Circuit #7",
     "minimal_set_inefficient": [
-      15,
-      3,
-      10,
-      13,
-      5,
-      14
+      4,
+      1,
+      7,
+      2
     ]
   },
   {
     "circuit_name": "Circuit #8",
     "minimal_set_inefficient": [
-      3,
-      28,
-      11,
-      13
+      15,
+      59,
+      30,
+      55,
+      61,
+      29,
+      23
     ]
   },
   {
     "circuit_name": "Circuit #9",
     "minimal_set_inefficient": [
-      12,
-      24,
-      20,
+      1,
+      3,
+      2
+    ]
+  },
+  {
+    "circuit_name": "Circuit #10",
+    "minimal_set_inefficient": [
+      2,
+      11,
+      9,
+      10
+    ]
+  },
+  {
+    "circuit_name": "Circuit #11",
+    "minimal_set_inefficient": [
+      10,
+      7,
+      13
+    ]
+  },
+  {
+    "circuit_name": "Circuit #12",
+    "minimal_set_inefficient": [
+      59,
+      61,
+      23,
+      34,
+      47,
+      57,
       30
     ]
   },
   {
-    "circuit_name": "Circuit #9_repeated",
+    "circuit_name": "Circuit #13",
     "minimal_set_inefficient": [
-      12,
-      22,
-      24,
-      14,
-      28,
-      20
+      23,
+      9,
+      15,
+      10,
+      30,
+      7
     ]
   },
   {
-    "circuit_name": "Circuit #10_sparse",
+    "circuit_name": "Circuit #14",
     "minimal_set_inefficient": [
       2,
-      16
+      3,
+      5
     ]
   },
   {
-    "circuit_name": "Circuit #10_dense",
+    "circuit_name": "Circuit #15",
     "minimal_set_inefficient": [
-      7,
-      19,
+      1,
+      3,
+      6
+    ]
+  },
+  {
+    "circuit_name": "Circuit #16",
+    "minimal_set_inefficient": [
+      25,
+      29,
+      13,
+      52,
+      31,
+      37,
+      60,
+      63
+    ]
+  },
+  {
+    "circuit_name": "Circuit #17",
+    "minimal_set_inefficient": [
+      2,
+      1
+    ]
+  },
+  {
+    "circuit_name": "Circuit #18",
+    "minimal_set_inefficient": [
+      1,
+      2,
+      3,
+      7
+    ]
+  },
+  {
+    "circuit_name": "Circuit #19",
+    "minimal_set_inefficient": [
+      1,
+      0
+    ]
+  },
+  {
+    "circuit_name": "Circuit #20",
+    "minimal_set_inefficient": [
+      0,
+      3
+    ]
+  },
+  {
+    "circuit_name": "Circuit #21",
+    "minimal_set_inefficient": [
+      0,
+      4
+    ]
+  },
+  {
+    "circuit_name": "Circuit #22",
+    "minimal_set_inefficient": [
       14,
       25,
       29,
-      24,
+      21,
+      28
+    ]
+  },
+  {
+    "circuit_name": "Circuit #23",
+    "minimal_set_inefficient": [
+      27,
+      29,
+      7,
+      30,
+      23,
+      31,
+      13
+    ]
+  },
+  {
+    "circuit_name": "Circuit #24",
+    "minimal_set_inefficient": [
+      13,
+      12,
+      5,
+      1,
+      8
+    ]
+  },
+  {
+    "circuit_name": "Circuit #25",
+    "minimal_set_inefficient": [
+      1,
+      12,
+      5,
+      13,
+      11,
+      14
+    ]
+  },
+  {
+    "circuit_name": "Circuit #26",
+    "minimal_set_inefficient": [
+      2,
+      3
+    ]
+  },
+  {
+    "circuit_name": "Circuit #27",
+    "minimal_set_inefficient": [
+      39,
+      27,
+      63,
+      62,
+      45
+    ]
+  },
+  {
+    "circuit_name": "Circuit #28",
+    "minimal_set_inefficient": [
+      0,
+      1
+    ]
+  },
+  {
+    "circuit_name": "Circuit #29",
+    "minimal_set_inefficient": [
+      5,
+      28,
+      17,
+      23,
+      10
+    ]
+  },
+  {
+    "circuit_name": "Circuit #30",
+    "minimal_set_inefficient": [
+      0,
+      7,
+      5
+    ]
+  },
+  {
+    "circuit_name": "Circuit #31",
+    "minimal_set_inefficient": [
+      6,
+      16,
+      22
+    ]
+  },
+  {
+    "circuit_name": "Circuit #32",
+    "minimal_set_inefficient": [
+      0,
+      1
+    ]
+  },
+  {
+    "circuit_name": "Circuit #33",
+    "minimal_set_inefficient": [
+      0,
+      2
+    ]
+  },
+  {
+    "circuit_name": "Circuit #34",
+    "minimal_set_inefficient": [
+      46,
+      31,
+      61,
+      43,
+      39,
+      47
+    ]
+  },
+  {
+    "circuit_name": "Circuit #35",
+    "minimal_set_inefficient": [
+      3,
+      1,
+      2
+    ]
+  },
+  {
+    "circuit_name": "Circuit #36",
+    "minimal_set_inefficient": [
+      27,
+      47,
+      58,
+      57,
+      55
+    ]
+  },
+  {
+    "circuit_name": "Circuit #37",
+    "minimal_set_inefficient": [
+      2,
+      13,
+      3,
+      15
+    ]
+  },
+  {
+    "circuit_name": "Circuit #38",
+    "minimal_set_inefficient": [
+      11,
+      19,
+      24
+    ]
+  },
+  {
+    "circuit_name": "Circuit #39",
+    "minimal_set_inefficient": [
+      6,
+      1,
+      7
+    ]
+  },
+  {
+    "circuit_name": "Circuit #40",
+    "minimal_set_inefficient": [
+      5,
+      11,
+      8,
+      15
+    ]
+  },
+  {
+    "circuit_name": "Circuit #41",
+    "minimal_set_inefficient": [
+      52,
+      6,
+      63,
+      56,
+      43,
+      55,
+      37,
+      5
+    ]
+  },
+  {
+    "circuit_name": "Circuit #42",
+    "minimal_set_inefficient": [
+      1,
+      0
+    ]
+  },
+  {
+    "circuit_name": "Circuit #43",
+    "minimal_set_inefficient": [
+      36,
+      49,
+      29,
+      53,
+      41,
+      61
+    ]
+  },
+  {
+    "circuit_name": "Circuit #44",
+    "minimal_set_inefficient": [
+      0,
+      2
+    ]
+  },
+  {
+    "circuit_name": "Circuit #45",
+    "minimal_set_inefficient": [
+      4,
+      9,
+      12,
+      13
+    ]
+  },
+  {
+    "circuit_name": "Circuit #46",
+    "minimal_set_inefficient": [
+      17,
+      13,
+      20,
+      29
+    ]
+  },
+  {
+    "circuit_name": "Circuit #47",
+    "minimal_set_inefficient": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "circuit_name": "Circuit #48",
+    "minimal_set_inefficient": [
+      3,
+      12,
+      6
+    ]
+  },
+  {
+    "circuit_name": "Circuit #49",
+    "minimal_set_inefficient": [
+      8,
+      7,
+      15,
+      12
+    ]
+  },
+  {
+    "circuit_name": "Circuit #50",
+    "minimal_set_inefficient": [
+      14,
+      9,
+      5,
+      13
+    ]
+  },
+  {
+    "circuit_name": "Circuit #51",
+    "minimal_set_inefficient": [
+      14,
+      27,
+      23,
+      25,
+      29
+    ]
+  },
+  {
+    "circuit_name": "Circuit #52",
+    "minimal_set_inefficient": [
+      7,
+      2,
+      4
+    ]
+  },
+  {
+    "circuit_name": "Circuit #53",
+    "minimal_set_inefficient": [
+      11,
+      29,
+      22,
+      31,
+      7,
+      19
+    ]
+  },
+  {
+    "circuit_name": "Circuit #54",
+    "minimal_set_inefficient": [
+      1,
+      8,
       11
+    ]
+  },
+  {
+    "circuit_name": "Circuit #55",
+    "minimal_set_inefficient": [
+      11,
+      22,
+      25
+    ]
+  },
+  {
+    "circuit_name": "Circuit #56",
+    "minimal_set_inefficient": [
+      2,
+      6,
+      0
+    ]
+  },
+  {
+    "circuit_name": "Circuit #57",
+    "minimal_set_inefficient": [
+      3,
+      0
+    ]
+  },
+  {
+    "circuit_name": "Circuit #58",
+    "minimal_set_inefficient": [
+      38,
+      31,
+      43,
+      61,
+      47
+    ]
+  },
+  {
+    "circuit_name": "Circuit #59",
+    "minimal_set_inefficient": [
+      17,
+      11,
+      19,
+      26,
+      18,
+      25,
+      10,
+      27
+    ]
+  },
+  {
+    "circuit_name": "Circuit #60",
+    "minimal_set_inefficient": [
+      1,
+      3,
+      2
+    ]
+  },
+  {
+    "circuit_name": "Circuit #61",
+    "minimal_set_inefficient": [
+      1,
+      3,
+      7
+    ]
+  },
+  {
+    "circuit_name": "Circuit #62",
+    "minimal_set_inefficient": [
+      58,
+      45,
+      14,
+      3,
+      43,
+      63
+    ]
+  },
+  {
+    "circuit_name": "Circuit #63",
+    "minimal_set_inefficient": [
+      2,
+      12,
+      14,
+      6
+    ]
+  },
+  {
+    "circuit_name": "Circuit #64",
+    "minimal_set_inefficient": [
+      7,
+      23,
+      30,
+      25,
+      19
+    ]
+  },
+  {
+    "circuit_name": "Circuit #65",
+    "minimal_set_inefficient": [
+      0,
+      2
+    ]
+  },
+  {
+    "circuit_name": "Circuit #66",
+    "minimal_set_inefficient": [
+      2,
+      3
+    ]
+  },
+  {
+    "circuit_name": "Circuit #67",
+    "minimal_set_inefficient": [
+      2,
+      5,
+      1
+    ]
+  },
+  {
+    "circuit_name": "Circuit #68",
+    "minimal_set_inefficient": [
+      0,
+      4,
+      5,
+      1
+    ]
+  },
+  {
+    "circuit_name": "Circuit #69",
+    "minimal_set_inefficient": [
+      1,
+      0
+    ]
+  },
+  {
+    "circuit_name": "Circuit #70",
+    "minimal_set_inefficient": [
+      15,
+      27,
+      28,
+      23,
+      31
+    ]
+  },
+  {
+    "circuit_name": "Circuit #71",
+    "minimal_set_inefficient": [
+      46,
+      23,
+      61,
+      47,
+      57
+    ]
+  },
+  {
+    "circuit_name": "Circuit #72",
+    "minimal_set_inefficient": [
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "circuit_name": "Circuit #73",
+    "minimal_set_inefficient": [
+      2,
+      1,
+      7
+    ]
+  },
+  {
+    "circuit_name": "Circuit #74",
+    "minimal_set_inefficient": [
+      41,
+      11,
+      35,
+      40,
+      43,
+      42
+    ]
+  },
+  {
+    "circuit_name": "Circuit #75",
+    "minimal_set_inefficient": [
+      61,
+      55,
+      31,
+      54,
+      47,
+      51,
+      34,
+      53
+    ]
+  },
+  {
+    "circuit_name": "Circuit #76",
+    "minimal_set_inefficient": [
+      5,
+      6,
+      3,
+      7,
+      4
+    ]
+  },
+  {
+    "circuit_name": "Circuit #77",
+    "minimal_set_inefficient": [
+      5,
+      1,
+      4
+    ]
+  },
+  {
+    "circuit_name": "Circuit #78",
+    "minimal_set_inefficient": [
+      14,
+      23,
+      13,
+      11,
+      27,
+      15
+    ]
+  },
+  {
+    "circuit_name": "Circuit #79",
+    "minimal_set_inefficient": [
+      3,
+      1,
+      0
+    ]
+  },
+  {
+    "circuit_name": "Circuit #80",
+    "minimal_set_inefficient": [
+      30,
+      54,
+      46,
+      61,
+      58
+    ]
+  },
+  {
+    "circuit_name": "Circuit #81",
+    "minimal_set_inefficient": [
+      1,
+      2,
+      6,
+      5
+    ]
+  },
+  {
+    "circuit_name": "Circuit #82",
+    "minimal_set_inefficient": [
+      6,
+      3,
+      2,
+      5
+    ]
+  },
+  {
+    "circuit_name": "Circuit #83",
+    "minimal_set_inefficient": [
+      2,
+      0
+    ]
+  },
+  {
+    "circuit_name": "Circuit #84",
+    "minimal_set_inefficient": [
+      0,
+      4
+    ]
+  },
+  {
+    "circuit_name": "Circuit #85",
+    "minimal_set_inefficient": [
+      28,
+      11,
+      30,
+      19,
+      26,
+      25
+    ]
+  },
+  {
+    "circuit_name": "Circuit #86",
+    "minimal_set_inefficient": [
+      17,
+      5,
+      21
+    ]
+  },
+  {
+    "circuit_name": "Circuit #87",
+    "minimal_set_inefficient": [
+      1,
+      3
+    ]
+  },
+  {
+    "circuit_name": "Circuit #88",
+    "minimal_set_inefficient": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "circuit_name": "Circuit #89",
+    "minimal_set_inefficient": [
+      2,
+      5,
+      9,
+      11
+    ]
+  },
+  {
+    "circuit_name": "Circuit #90",
+    "minimal_set_inefficient": [
+      11,
+      5,
+      28,
+      9
+    ]
+  },
+  {
+    "circuit_name": "Circuit #91",
+    "minimal_set_inefficient": [
+      2,
+      5,
+      7,
+      3
+    ]
+  },
+  {
+    "circuit_name": "Circuit #92",
+    "minimal_set_inefficient": [
+      0,
+      3,
+      1
+    ]
+  },
+  {
+    "circuit_name": "Circuit #93",
+    "minimal_set_inefficient": [
+      39,
+      58,
+      63,
+      61,
+      31,
+      47
+    ]
+  },
+  {
+    "circuit_name": "Circuit #94",
+    "minimal_set_inefficient": [
+      1,
+      2
+    ]
+  },
+  {
+    "circuit_name": "Circuit #95",
+    "minimal_set_inefficient": [
+      7,
+      14,
+      10,
+      15,
+      11
+    ]
+  },
+  {
+    "circuit_name": "Circuit #96",
+    "minimal_set_inefficient": [
+      1,
+      3,
+      6
+    ]
+  },
+  {
+    "circuit_name": "Circuit #97",
+    "minimal_set_inefficient": [
+      6,
+      2,
+      4
+    ]
+  },
+  {
+    "circuit_name": "Circuit #98",
+    "minimal_set_inefficient": [
+      29,
+      19,
+      30,
+      15,
+      23
+    ]
+  },
+  {
+    "circuit_name": "Circuit #99",
+    "minimal_set_inefficient": [
+      2,
+      1,
+      0
+    ]
+  },
+  {
+    "circuit_name": "Circuit #100",
+    "minimal_set_inefficient": [
+      5,
+      24,
+      30,
+      6
     ]
   }
 ]

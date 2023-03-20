@@ -445,7 +445,7 @@
   {
     "name": "Circuit #10_dense",
     "circuit_layout": [
-     {
+      {
         "target": "0b01000",
         "controls": "0b00111"
       },
@@ -469,6 +469,76 @@
     "circuit_specs": {
       "lines": 5,
       "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #11",
+    "circuit_layout": [
+      {
+        "target": "0b00001",
+        "controls": "0b11110"
+      },
+      {
+        "target": "0b01000",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b00010",
+        "controls": "0b01100"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b01010"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b01001"
+      },
+      {
+        "target": "0b01000",
+        "controls": "0b00110"
+      },
+      {
+        "target": "0b00010",
+        "controls": "0b11100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #12",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b01001"
+      },
+      {
+        "target": "0b01000",
+        "controls": "0b10011"
+      },
+      {
+        "target": "0b00001",
+        "controls": "0b00000"
+      },
+      {
+        "target": "0b00001",
+        "controls": "0b00100"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b01001"
+      },
+      {
+        "target": "0b01000",
+        "controls": "0b10100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 6
     }
   }
 ]

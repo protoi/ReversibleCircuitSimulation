@@ -1,0 +1,3166 @@
+[
+  {
+    "name": "Circuit #1",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b101010"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110110"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110010"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110111"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #2",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #3",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b11010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10010"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #4",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #5",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #6",
+    "circuit_layout": [
+      {
+        "target": "0b100000",
+        "controls": "0b10010"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b101111"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b11010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #7",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #8",
+    "circuit_layout": [
+      {
+        "target": "0b100000",
+        "controls": "0b1111"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b111000"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b111010"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11000"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b100000"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11011"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #9",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #10",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #11",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #12",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b110000"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100000"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100100"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b11111"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b100010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #13",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b1011"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10011"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b11101"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #14",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #15",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #16",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b10101"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b10001"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110111"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b101011"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b100000"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b11000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #17",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #18",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b111"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b111"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #19",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #20",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #21",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #22",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b11101"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #23",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1011"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1111"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #24",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #25",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1110"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #26",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #27",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b101011"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b101000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b101010"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b110001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #28",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #29",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b10101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b11000"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b10101"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b111"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #30",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #31",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b10100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #32",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #33",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #34",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b101110"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b101111"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b110010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b100010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #35",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #36",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b111000"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b10011"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b1111"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b100001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #37",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b111"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #38",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b10010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #39",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #40",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b111"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b111"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #41",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b11000"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b111011"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #42",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #43",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b100100"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b101000"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b111100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #44",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #45",
+    "circuit_layout": [
+      {
+        "target": "0b100000",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1101"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #46",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b10100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b10001"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b11001"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b10100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #47",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #48",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #49",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #50",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #51",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b10011"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b10011"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #52",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #53",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b10111"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #54",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #55",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b10100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #56",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #57",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #58",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b100010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b100111"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101000"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b100100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #59",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b11011"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10011"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b11000"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10011"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #60",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #61",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #62",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110011"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b11100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b1001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #63",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1110"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #64",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b10101"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10011"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1110"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #65",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #66",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #67",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #68",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #69",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #70",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b11110"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b10001"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #71",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b100011"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100010"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b11101"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #72",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #73",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #74",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b101011"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b101001"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101000"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b100001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #75",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b110010"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b111101"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110111"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100010"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110011"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #76",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #77",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #78",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b1111"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10100"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b10100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #79",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 7
+    }
+  },
+  {
+    "name": "Circuit #80",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b11110"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110110"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1011"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #81",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #82",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #83",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #84",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #85",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b1011"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10010"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b11100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b11110"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #86",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b10001"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #87",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #88",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #89",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b111"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1011"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #90",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10001"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 3
+    }
+  },
+  {
+    "name": "Circuit #91",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b110"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #92",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 4
+    }
+  },
+  {
+    "name": "Circuit #93",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b100110"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b111010"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b110101"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b10111"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b10000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #94",
+    "circuit_layout": [
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b0"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 8
+    }
+  },
+  {
+    "name": "Circuit #95",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1110"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #96",
+    "circuit_layout": [
+      {
+        "target": "0b100",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b11"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #97",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 3,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #98",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b10111"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b101"
+      },
+      {
+        "target": "0b100",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b0"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 6
+    }
+  },
+  {
+    "name": "Circuit #99",
+    "circuit_layout": [
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 2,
+      "gates": 5
+    }
+  },
+  {
+    "name": "Circuit #100",
+    "circuit_layout": [
+      {
+        "target": "0b1000",
+        "controls": "0b100"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1101"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b11100"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b1",
+        "controls": "0b1100"
+      },
+      {
+        "target": "0b10",
+        "controls": "0b1"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 8
+    }
+  }
+]

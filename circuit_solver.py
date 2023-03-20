@@ -9,7 +9,7 @@ def read_file() -> list[dict]:
     :return: an array of circuit information
     :rtype: list[dict]
     """
-    file_location = "./RESULTS/data.json"
+    file_location = "./RESULTS/generated_data.json"
     with open(file_location, 'r') as f:
         data = json.load(f)
     return data

@@ -125,9 +125,8 @@ class Circuit:
         :return: None
         :rtype: None
         """
-        self.cascade_of_gates = [
-            Gate(config_data['target'], config_data['controls'], self.number_of_lines)
-            for config_data in gate_config]
+        self.cascade_of_gates = [Gate(config_data['target'], config_data['controls'], self.number_of_lines) for
+            config_data in gate_config]
 
     def circuit_user(self):
         """
@@ -182,8 +181,7 @@ class Circuit:
                                                       7 = 00111
                         {'target': 0b10000, 'controls': 0b00111}, -> 0b10111
                         {'target': 0b01000, 'controls': 0b10111}, -> 0b11111
-                '''
-                # print(f'----> for input {current_input}, gate# {index + 1} smgf is handled')
+                '''  # print(f'----> for input {current_input}, gate# {index + 1} smgf is handled')
             # otherwise we check if it is a test for pmgf or not
             else:
                 # below line was faulty
@@ -250,7 +248,7 @@ class DataSet:
 
             # to make sure target location is always 0 for control, we AND it with inverted target
             controls = controls & inverted_target
-            self.gate_cascade[index] = {'target': target, 'controls': controls}
+            self.gate_cascade[index] = {'target': bin(target), 'controls': bin(controls)}
         return self.gate_cascade
 
 
@@ -277,10 +275,7 @@ def test0():
         # circ.print_faults()
         utils.fault_extractor(circ.smgf, circ.pmgf, circ.mmgf, circuit_input, fault_map, fault_table)
         print("pmgf")
-        print(circ.pmgf)
-        # print("new pmgf")
-        # print(circ.pmgf_new)
-        # print("=================")
+        print(circ.pmgf)  # print("new pmgf")  # print(circ.pmgf_new)  # print("=================")
     print(fault_table)
     print(fault_map)
     utils.fault_map_printer(fault_map, no_of_lines)
@@ -291,10 +286,7 @@ def test0_0():
     no_of_lines = 5
     no_of_gates = 2
     circ = Circuit(no_of_gates)
-    mydata = [
-        {'target': 0b10000, 'controls': 0b00111},
-        {'target': 0b01000, 'controls': 0b10111},
-    ]  # 001 -> fault #12
+    mydata = [{'target': 0b10000, 'controls': 0b00111}, {'target': 0b01000, 'controls': 0b10111}, ]  # 001 -> fault #12
     circ.circuit_maker(mydata)
 
     fault_map, no_of_total_faults = utils.map_fault_with_index(mydata)
@@ -311,10 +303,7 @@ def test0_0():
         print("pmgf")
         print(circ.pmgf)
         print("SMGF:")
-        print(circ.smgf)
-        # print("new pmgf")
-        # print(circ.pmgf_new)
-        # print("=================")
+        print(circ.smgf)  # print("new pmgf")  # print(circ.pmgf_new)  # print("=================")
     print(fault_table)
     print(fault_map)
     utils.fault_map_printer(fault_map, no_of_lines)

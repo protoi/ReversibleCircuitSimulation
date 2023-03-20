@@ -269,19 +269,19 @@ def save_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     Total faults: (smgf: {no_of_gates}, pmgf: {no_of_total_faults - no_of_gates - no_of_mmgf}, mmgf: {no_of_mmgf}).''')
 
     dot_size = 1
-    # doesn't make sense if it crosses around 35 faults, it gets too cluttered
-    if no_of_total_faults <= 50:
+    # doesn't make sense if it crosses around 100 faults, it gets too cluttered
+    if no_of_total_faults <= 100:
         plt.yticks(range(1, no_of_total_faults + 1))
         plt.xticks(range(0, 1 << no_of_lines))
 
-        dot_size = 200
+        dot_size = 100
 
         # horizontal lines to separate smgf, pmgf and mmgf regions
         ax.axhline(y=no_of_gates + 0.5, color='black', linestyle='dashed')
         ax.axhline(y=no_of_total_faults - no_of_mmgf + 0.5, color='black', linestyle='dashed')
         plt.grid()
         ax.set_axisbelow(True)
-        fig.set_size_inches(10, 10)
+        fig.set_size_inches(15, 15)
 
     ax.scatter(mmgf_x, mmgf_y, s=dot_size, c='#00539CFF', label="mmgf")
     ax.scatter(pmgf_x, pmgf_y, s=dot_size, c='#006B38FF', label="pmgf")

@@ -3,13 +3,12 @@ import binary_implementation as binimp
 import utilities as utils
 
 
-def read_file() -> list[dict]:
+def read_file(file_location="./RESULTS/generated_data.json") -> list[dict]:
     """
     reads the data.json file for circuit information
     :return: an array of circuit information
     :rtype: list[dict]
     """
-    file_location = "./RESULTS/generated_data.json"
     with open(file_location, 'r') as f:
         data = json.load(f)
     return data
@@ -89,7 +88,8 @@ def simulate_circuit(circuit_data: dict) -> dict:
 
     # we will be passing in the string representation of the binary numbers instead, easier to work with
     # saving a visual representation of the circuit
-    utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name)
+
+    # utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name)
 
     # turning "0b111" into 0b111, it was stored as a string in JSON format
     circuit_layout_corrected = list(map(fix_target_and_controls, circuit_layout))
@@ -116,10 +116,12 @@ def simulate_circuit(circuit_data: dict) -> dict:
         utils.fault_extractor(circuit.smgf, circuit.pmgf, circuit.mmgf, circuit_input, fault_map, fault_table)
 
     # saving the fault mappings
-    utils.save_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1, circuit_name)
+    # --->
+    # utils.save_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1, circuit_name)
 
     # saving the fault mappings as a json
-    utils.save_faults_json(fault_table, circuit_name)
+    # --->
+    # utils.save_faults_json(fault_table, circuit_name)
 
     fault_data_set_covered = greedy_set_cover(fault_table)
 

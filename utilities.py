@@ -226,7 +226,7 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
 
 
 def save_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total_faults: int,
-               file_name: str) -> None:
+               file_name: str, file_link: str) -> None:
     """
     plots the fault vs input graph
     :param no_of_total_faults: total possible faults in a circuit: smgf + pmgf + mmgf
@@ -239,7 +239,8 @@ def save_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     :type no_of_gates: int
     :param file_name: name of file to be written to.
     :type file_name: str
-    :return: None
+    :param file_link: revlib reference link to the circuit
+    :type: str
     :rtype: None
     """
     fig, ax = plt.subplots(ncols=1)
@@ -263,6 +264,7 @@ def save_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     no_of_mmgf = (no_of_gates * (no_of_gates - 1)) // 2
 
     plt.title(f'''{file_name}
+    {file_link}
     Fault vs Input graph for circuit with
     {no_of_gates} Gates and {no_of_lines} Control Lines.
     Total input combinations: {2 ** no_of_lines}.
@@ -293,14 +295,15 @@ def save_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     fig.tight_layout()
     fig.subplots_adjust(right=0.85)
 
-    plt.savefig(f"./RESULTS/FAULTS/{file_name}_FAULTS.png")
+    # plt.savefig(f"./RESULTS/FAULTS/{file_name}_FAULTS.png")
+    plt.savefig(f"./RESULTS/REVLIB/FAULTS/{file_name}_FAULTS.png")
     fig.clear()
     plt.close(fig)
 
     print(f"{file_name} json data saved")
 
 
-def save_circuit(circuit_data: list[dict], no_of_lines: int, no_of_gates: int, file_name: str) -> None:
+def save_circuit(circuit_data: list[dict], no_of_lines: int, no_of_gates: int, file_name: str, file_link: str) -> None:
     control_points_x, control_points_y = [], []
     target_points_x, target_points_y = [], []
 
@@ -329,9 +332,11 @@ def save_circuit(circuit_data: list[dict], no_of_lines: int, no_of_gates: int, f
     plt.yticks(range(0, no_of_lines + 2))
     plt.xticks(range(0, max(no_of_gates, 5) + 2))
 
-    plt.title(file_name)
+    plt.title(f'''{file_name}
+    {file_link}''')
 
-    plt.savefig(f"./RESULTS/CIRCUITS/{file_name}_CONFIG.png")
+    # plt.savefig(f"./RESULTS/CIRCUITS/{file_name}_CONFIG.png")
+    plt.savefig(f"./RESULTS/REVLIB/CIRCUITS/{file_name}_CONFIG.png")
     fig.clear()
     plt.close(fig)
     print(f"{file_name} config saved")
@@ -339,6 +344,8 @@ def save_circuit(circuit_data: list[dict], no_of_lines: int, no_of_gates: int, f
     pass
 
 
-def save_faults_json(fault_table: list[dict], file_name: str) -> None:
-    with open(f"./RESULTS/JSONS/{file_name}_JSON.json", "w") as write:
-        json.dump(fault_table, write, indent=2)
+def save_faults_json(fault_table: list[dict], file_name: str, file_link: str) -> None:
+    dict_to_write = {"name": file_name, "ref link": file_link, "data": fault_table}
+    # with open(f"./RESULTS/JSONS/{file_name}_JSON.json", "w") as write:
+    with open(f"./RESULTS/REVLIB/JSONS/{file_name}_JSON.json", "w") as write:
+        json.dump(dict_to_write, write, indent=2)

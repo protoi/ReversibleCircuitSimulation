@@ -1,0 +1,117 @@
+[
+  {
+    "circuit_name": "Hamming Code",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/ham3_102.jpg",
+    "minimal_set": [
+      31,
+      30,
+      28,
+      29
+    ]
+  },
+  {
+    "circuit_name": "4 greater than 10",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt10-v1_81.jpg",
+    "minimal_set": [
+      31,
+      27,
+      24,
+      26,
+      22,
+      18
+    ]
+  },
+  {
+    "circuit_name": "4 greater than 4",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt4-v0_72.jpg",
+    "minimal_set": [
+      12,
+      31,
+      30,
+      11,
+      10,
+      23
+    ]
+  },
+  {
+    "circuit_name": "4 modulo 7",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4mod7-v0_94.jpg",
+    "minimal_set": [
+      26,
+      23,
+      28,
+      31,
+      22
+    ]
+  },
+  {
+    "circuit_name": "4 modulo 5",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4mod5-v0_21.jpg",
+    "minimal_set": [
+      26,
+      23,
+      28,
+      31,
+      22
+    ]
+  },
+  {
+    "circuit_name": "4 greater than 12",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt12-v0_88.jpg",
+    "minimal_set": [
+      31,
+      28,
+      26,
+      22,
+      29
+    ]
+  },
+  {
+    "circuit_name": "4 greater than 13",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt13-v1_93.jpg",
+    "minimal_set": [
+      29,
+      26,
+      30,
+      23
+    ]
+  },
+  {
+    "circuit_name": "1-bit Adder",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/rd32-v1_68.jpg",
+    "minimal_set": [
+      15,
+      7,
+      9
+    ]
+  },
+  {
+    "circuit_name": "Graycode",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/graycode6_47.jpg",
+    "minimal_set": [
+      63,
+      48,
+      47
+    ]
+  },
+  {
+    "circuit_name": "Modulo mili 5",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5mils_71.jpg",
+    "minimal_set": [
+      21,
+      15,
+      29,
+      27
+    ]
+  },
+  {
+    "circuit_name": "Modulo mili 5",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5mils_71.jpg",
+    "minimal_set": [
+      21,
+      15,
+      29,
+      27
+    ]
+  }
+]

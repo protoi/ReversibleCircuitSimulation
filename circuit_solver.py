@@ -3,7 +3,7 @@ import binary_implementation as binimp
 import utilities as utils
 
 
-def read_file(file_location="./RESULTS/generated_data.json") -> list[dict]:
+def read_file(file_location="./RESULTS/REVLIB/INPUTS/data revlib.json") -> list[dict]:
     """
     reads the data.json file for circuit information
     :return: an array of circuit information
@@ -80,6 +80,7 @@ def simulate_circuit(circuit_data: dict) -> dict:
     :rtype: None
     """
     circuit_name = circuit_data["name"]
+    circuit_reference = circuit_data.get("link", "no link")
 
     no_of_lines = circuit_data["circuit_specs"]["lines"]
     no_of_gates = circuit_data["circuit_specs"]["gates"]
@@ -89,7 +90,7 @@ def simulate_circuit(circuit_data: dict) -> dict:
     # we will be passing in the string representation of the binary numbers instead, easier to work with
     # saving a visual representation of the circuit
 
-    # utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name)
+    utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name, circuit_reference)
 
     # turning "0b111" into 0b111, it was stored as a string in JSON format
     circuit_layout_corrected = list(map(fix_target_and_controls, circuit_layout))
@@ -117,25 +118,26 @@ def simulate_circuit(circuit_data: dict) -> dict:
 
     # saving the fault mappings
     # --->
-    # utils.save_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1, circuit_name)
+    utils.save_graph(fault_table, no_of_lines, no_of_gates, no_of_total_faults - 1, circuit_name, circuit_reference)
 
     # saving the fault mappings as a json
     # --->
-    # utils.save_faults_json(fault_table, circuit_name)
+    utils.save_faults_json(fault_table, circuit_name, circuit_reference)
 
     fault_data_set_covered = greedy_set_cover(fault_table)
 
-    return {'circuit_name': circuit_name, 'minimal_set_inefficient': fault_data_set_covered}
+    return {'circuit_name': circuit_name, 'circuit_reference': circuit_reference , 'minimal_set_inefficient': fault_data_set_covered}
 
 
 def runner() -> None:
     """
     builder of the specified circuits
-    :return: None
+    :return:
     :rtype: None
     """
     circuit_data = read_file()
     minimal_sets = list(map(simulate_circuit, circuit_data))
 
-    with open('./RESULTS/MINIMAL_SETS/old_greedy_algo.json', 'w') as file:
+    # with open('./RESULTS/MINIMAL_SETS/old_greedy_algo.json', 'w') as file:
+    with open('./RESULTS/REVLIB/MINIMAL_SETS/old_greedy_algo.json', 'w') as file:
         json.dump(minimal_sets, file, indent=2)

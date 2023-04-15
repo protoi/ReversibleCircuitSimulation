@@ -119,6 +119,7 @@ def simulate_circuit(circuit_data: dict) -> dict:
     :rtype: dict
     """
     circuit_name = circuit_data["name"]
+    circuit_reference = circuit_data.get('link', "no link")
 
     no_of_lines, no_of_gates = circuit_data["circuit_specs"]["lines"], circuit_data["circuit_specs"]["gates"]
 
@@ -126,7 +127,7 @@ def simulate_circuit(circuit_data: dict) -> dict:
 
     # saving a graphical representation of the circuit
     # OPTIONAL if running with circuit_solver.runner()
-    # utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name)
+    # utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name, circuit_reference)
 
     circuit_layout_bin_string_to_integer = list(map(fix_target_and_controls, circuit_layout))
 
@@ -144,7 +145,7 @@ def simulate_circuit(circuit_data: dict) -> dict:
     fault_data_set_covered = greedily_pick_best_fit(fault_data)
 
     # print(fault_data_set_covered)
-    return {"circuit_name": circuit_name, "minimal_set": fault_data_set_covered}
+    return {"circuit_name": circuit_name, "circuit_reference": circuit_reference, "minimal_set": fault_data_set_covered}
 
 
 def experimental_runner() -> None:
@@ -156,5 +157,6 @@ def experimental_runner() -> None:
     circuit_data = read_file()
     minimal_sets = list(map(simulate_circuit, circuit_data))
 
-    with open("./RESULTS/MINIMAL_SETS/mini_set.json", "w") as file:
+    # with open("./RESULTS/MINIMAL_SETS/mini_set.json", "w") as file:
+    with open("./RESULTS/REVLIB/MINIMAL_SETS/mini_set.json", "w") as file:
         json.dump(minimal_sets, file, indent=2)

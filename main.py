@@ -8,8 +8,10 @@ import time
 if __name__ == "__main__":
     in_loc, out_loc = "./RESULTS/generated_data.json", "./RESULTS/MINIMAL_SETS/mini_set.json"
     time_start_old = time.time()
-    cs.runner()
+    # cs.runner()
     time_end_old = time.time()
+
+    print("hello world")
 
     time_start_new = time.time()
     exp.experimental_runner()

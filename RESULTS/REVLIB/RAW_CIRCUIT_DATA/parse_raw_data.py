@@ -20,8 +20,14 @@ def parse_gates(array_of_gates: list[str], no_of_lines: int, var_index_mapping: 
     for index, gate in enumerate(array_of_gates):
         target_and_controls = gate.split(' ')
         target_array, controls_array = ["0"] * no_of_lines, ["0"] * no_of_lines
-        tar = var_index_mapping.get(target_and_controls[-1], -1)
-        cont = [var_index_mapping.get(x, -1) for x in target_and_controls[1:-1]]
+
+        tar_index = int(target_and_controls[0][
+                        1:])  # for 't4', 'x3', 'x7', 'x11', 'f3' = number next to t, which is 4, so target = 4th element (1 indexed) excluding the t4
+
+        tar = var_index_mapping.get(target_and_controls[tar_index], -1)  # picking tar_index'th element
+        temp_slice = target_and_controls[1:tar_index] + target_and_controls[
+                                                        tar_index + 1:]  # everything except t4(1st) and tar_index'th element
+        cont = [var_index_mapping.get(x, -1) for x in temp_slice]
         if tar == -1:
             return None
         target_array[tar] = "1"

@@ -12,12 +12,10 @@
     "circuit_name": "4 greater than 10",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt10-v1_81.jpg",
     "minimal_set_inefficient": [
-      9,
-      14,
-      10,
-      4,
-      18,
-      26
+      7,
+      27,
+      21,
+      30
     ]
   },
   {
@@ -34,17 +32,6 @@
   {
     "circuit_name": "4 modulo 7",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4mod7-v0_94.jpg",
-    "minimal_set_inefficient": [
-      14,
-      23,
-      21,
-      31,
-      19
-    ]
-  },
-  {
-    "circuit_name": "4 modulo 5",
-    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4mod5-v0_21.jpg",
     "minimal_set_inefficient": [
       14,
       23,
@@ -102,13 +89,71 @@
     ]
   },
   {
-    "circuit_name": "Modulo mili 5",
-    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5mils_71.jpg",
+    "circuit_name": "Mod 5d1",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5d1_63.jpg",
     "minimal_set_inefficient": [
-      4,
-      28,
-      10,
-      30
+      14,
+      8,
+      24
+    ]
+  },
+  {
+    "circuit_name": "Mod 5d2",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5d2_64.jpg",
+    "minimal_set_inefficient": [
+      2,
+      15,
+      12,
+      6
+    ]
+  },
+  {
+    "circuit_name": "4 greater than 11",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt11-v1_85.jpg",
+    "minimal_set_inefficient": [
+      12,
+      21,
+      25
+    ]
+  },
+  {
+    "circuit_name": "ALU v2",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/alu-v2_31.jpg",
+    "minimal_set_inefficient": [
+      27,
+      29,
+      7,
+      30,
+      31
+    ]
+  },
+  {
+    "circuit_name": "ALU v3",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/alu-v3_34.jpg",
+    "minimal_set_inefficient": [
+      1,
+      30,
+      7,
+      21
+    ]
+  },
+  {
+    "circuit_name": "XOR 5",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/xor5_254.jpg",
+    "minimal_set_inefficient": [
+      16,
+      15
+    ]
+  },
+  {
+    "circuit_name": "MOD 10r",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod10_171.jpg",
+    "minimal_set_inefficient": [
+      9,
+      13,
+      15,
+      6,
+      3
     ]
   }
 ]

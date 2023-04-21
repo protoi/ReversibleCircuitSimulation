@@ -24,8 +24,8 @@
       }
     ],
     "circuit_specs": {
-      "lines": 5,
-      "gates": 3
+      "lines": 3,
+      "gates": 5
     },
     "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/ham3_102.jpg"
   },
@@ -33,29 +33,33 @@
     "name": "4 greater than 10",
     "circuit_layout": [
       {
+        "target": "0b01000",
+        "controls": "0b10101"
+      },
+      {
         "target": "0b10000",
-        "controls": "0b01100"
+        "controls": "0b00100"
       },
       {
         "target": "0b00100",
-        "controls": "0b00000"
+        "controls": "0b01011"
       },
       {
-        "target": "0b10000",
+        "target": "0b00001",
+        "controls": "0b01000"
+      },
+      {
+        "target": "0b00100",
         "controls": "0b00001"
       },
       {
         "target": "0b00001",
-        "controls": "0b11110"
-      },
-      {
-        "target": "0b00001",
-        "controls": "0b10000"
+        "controls": "0b10100"
       }
     ],
     "circuit_specs": {
       "lines": 5,
-      "gates": 5
+      "gates": 6
     },
     "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt10-v1_81.jpg"
   },
@@ -126,40 +130,6 @@
       "gates": 6
     },
     "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4mod7-v0_94.jpg"
-  },
-  {
-    "name": "4 modulo 5",
-    "circuit_layout": [
-      {
-        "target": "0b10000",
-        "controls": "0b01001"
-      },
-      {
-        "target": "0b00001",
-        "controls": "0b01000"
-      },
-      {
-        "target": "0b10000",
-        "controls": "0b00111"
-      },
-      {
-        "target": "0b00001",
-        "controls": "0b10110"
-      },
-      {
-        "target": "0b00100",
-        "controls": "0b10010"
-      },
-      {
-        "target": "0b00010",
-        "controls": "0b10000"
-      }
-    ],
-    "circuit_specs": {
-      "lines": 5,
-      "gates": 6
-    },
-    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4mod5-v0_21.jpg"
   },
   {
     "name": "4 greater than 12",
@@ -308,33 +278,297 @@
     "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5mils_71.jpg"
   },
   {
-    "name": "Modulo mili 5",
+    "name": "Mod 5d1",
     "circuit_layout": [
       {
-        "target": "0b00010",
-        "controls": "0b00000"
+        "target": "0b01000",
+        "controls": "0b00010"
       },
       {
-        "target": "0b00010",
+        "target": "0b10000",
+        "controls": "0b00100"
+      },
+      {
+        "target": "0b00001",
         "controls": "0b01000"
       },
       {
         "target": "0b00001",
-        "controls": "0b00110"
+        "controls": "0b10000"
       },
       {
         "target": "0b00001",
-        "controls": "0b10010"
+        "controls": "0b11000"
       },
       {
-        "target": "0b00001",
+        "target": "0b01000",
         "controls": "0b00010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00100"
       }
     ],
     "circuit_specs": {
       "lines": 5,
-      "gates": 5
+      "gates": 7
     },
-    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5mils_71.jpg"
+    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5d1_63.jpg"
+  },
+  {
+    "name": "Mod 5d2",
+    "circuit_layout": [
+      {
+        "target": "0b01000",
+        "controls": "0b00010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00110"
+      },
+      {
+        "target": "0b00010",
+        "controls": "0b00001"
+      },
+      {
+        "target": "0b00001",
+        "controls": "0b00000"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b00001"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b01100"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b00010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00101"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 8
+    },
+    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5d2_64.jpg"
+  },
+  {
+    "name": "4 greater than 11",
+    "circuit_layout": [
+      {
+        "target": "0b10000",
+        "controls": "0b00001"
+      },
+      {
+        "target": "0b00001",
+        "controls": "0b00000"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b01100"
+      },
+      {
+        "target": "0b00001",
+        "controls": "0b10000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 4
+    },
+    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt11-v1_85.jpg"
+  },
+  {
+    "name": "ALU v2",
+    "circuit_layout": [
+      {
+        "target": "0b00100",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b10010"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b10001"
+      },
+      {
+        "target": "0b01000",
+        "controls": "0b00111"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b01011"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b01011"
+      },
+      {
+        "target": "0b01000",
+        "controls": "0b00111"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b10011"
+      },
+      {
+        "target": "0b01000",
+        "controls": "0b10011"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00101"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00110"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00100"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 13
+    },
+    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/alu-v2_31.jpg"
+  },
+  {
+    "name": "ALU v3",
+    "circuit_layout": [
+      {
+        "target": "0b01000",
+        "controls": "0b00101"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b00000"
+      },
+      {
+        "target": "0b00010",
+        "controls": "0b00001"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b01001"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00100"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b10010"
+      },
+      {
+        "target": "0b00010",
+        "controls": "0b00100"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 7
+    },
+    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/alu-v3_34.jpg"
+  },
+  {
+    "name": "XOR 5",
+    "circuit_layout": [
+      {
+        "target": "0b100000",
+        "controls": "0b000100"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b010000"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b000001"
+      },
+      {
+        "target": "0b001000",
+        "controls": "0b000000"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b001000"
+      },
+      {
+        "target": "0b00010",
+        "controls": "0b000000"
+      },
+      {
+        "target": "0b100000",
+        "controls": "0b000010"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 6,
+      "gates": 7
+    },
+    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/xor5_254.jpg"
+  },
+  {
+    "name": "MOD 10r",
+    "circuit_layout": [
+      {
+        "target": "0b0010",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b0001",
+        "controls": "0b1110"
+      },
+      {
+        "target": "0b0100",
+        "controls": "0b1011"
+      },
+      {
+        "target": "0b1000",
+        "controls": "0b0111"
+      },
+      {
+        "target": "0b0010",
+        "controls": "0b1000"
+      },
+      {
+        "target": "0b0010",
+        "controls": "0b1001"
+      },
+      {
+        "target": "0b0100",
+        "controls": "0b0011"
+      },
+      {
+        "target": "0b0010",
+        "controls": "0b0001"
+      },
+      {
+        "target": "0b0001",
+        "controls": "0b1010"
+      },
+      {
+        "target": "0b0001",
+        "controls": "0b0000"
+      }
+    ],
+    "circuit_specs": {
+      "lines": 4,
+      "gates": 10
+    },
+    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod10_171.jpg"
   }
 ]

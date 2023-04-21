@@ -1,5 +1,4 @@
 import json
-from typing import List, Dict
 
 with open('./raw_data.json', 'r') as f:
     data = json.load(f)
@@ -21,8 +20,8 @@ def parse_gates(array_of_gates: list[str], no_of_lines: int, var_index_mapping: 
     for index, gate in enumerate(array_of_gates):
         target_and_controls = gate.split(' ')
         target_array, controls_array = ["0"] * no_of_lines, ["0"] * no_of_lines
-        tar = var_index_mapping.get(target_and_controls[1], -1)
-        cont = [var_index_mapping.get(x, -1) for x in target_and_controls[2:]]
+        tar = var_index_mapping.get(target_and_controls[-1], -1)
+        cont = [var_index_mapping.get(x, -1) for x in target_and_controls[1:-1]]
         if tar == -1:
             return None
         target_array[tar] = "1"

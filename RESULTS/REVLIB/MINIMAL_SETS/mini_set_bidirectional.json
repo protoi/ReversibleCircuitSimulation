@@ -175,5 +175,32 @@
       3
     ],
     "set_length": 5
+  },
+  {
+    "circuit_name": "alu 1",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/alu1_198.jpg",
+    "minimal_set_bidirectional": [
+      1048471,
+      1048440,
+      119,
+      1048559,
+      136,
+      120,
+      135,
+      1048456
+    ],
+    "set_length": 8
+  },
+  {
+    "circuit_name": "mod10",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod10_171.jpg",
+    "minimal_set_bidirectional": [
+      9,
+      13,
+      15,
+      6,
+      3
+    ],
+    "set_length": 5
   }
 ]

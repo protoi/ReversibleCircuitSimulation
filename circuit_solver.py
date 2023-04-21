@@ -126,7 +126,8 @@ def simulate_circuit(circuit_data: dict) -> dict:
 
     fault_data_set_covered = greedy_set_cover(fault_table)
 
-    return {'circuit_name': circuit_name, 'circuit_reference': circuit_reference , 'minimal_set_inefficient': fault_data_set_covered}
+    return {'circuit_name': circuit_name, 'circuit_reference': circuit_reference,
+            'minimal_set_inefficient': fault_data_set_covered, 'set_length': len(fault_data_set_covered)}
 
 
 def runner() -> None:

@@ -91,20 +91,23 @@ def encounter_faults(circuit: binimp.Circuit, fault_mapping: dict, no_of_total_f
     total_faults_encountered = set()
     faults_encountered = dict()
 
-    current_input = (1 << no_of_lines) - 1
+    # current_input = (1 << no_of_lines) - 1
+    left_pointer, right_pointer = 0, (1 << no_of_lines) - 1
 
-    while (len(total_faults_encountered) != no_of_total_faults) and (current_input >= 0):
-        circuit.set_starting_data(current_input)
+    def feed_input(input_vector):
+        circuit.set_starting_data(input_vector)
         circuit.circuit_user()
 
         current_faults = map_faults(fault_mapping, circuit.smgf, circuit.pmgf, circuit.mmgf)
-        # print("new addition: for input ", current_input)
-
         total_faults_encountered.update(current_faults)
+        faults_encountered[input_vector] = current_faults
 
-        faults_encountered[current_input] = current_faults
+    while (len(total_faults_encountered) != no_of_total_faults) and (left_pointer <= right_pointer):
+        feed_input(left_pointer)
+        feed_input(right_pointer)
 
-        current_input -= 1
+        left_pointer += 1
+        right_pointer -= 1
 
     return faults_encountered
 
@@ -125,10 +128,6 @@ def simulate_circuit(circuit_data: dict) -> dict:
 
     circuit_layout = circuit_data["circuit_layout"]
 
-    # saving a graphical representation of the circuit
-    # OPTIONAL if running with circuit_solver.runner()
-    # utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name, circuit_reference)
-
     circuit_layout_bin_string_to_integer = list(map(fix_target_and_controls, circuit_layout))
 
     # initializing the circuit with starter values
@@ -145,11 +144,11 @@ def simulate_circuit(circuit_data: dict) -> dict:
     fault_data_set_covered = greedily_pick_best_fit(fault_data)
 
     # print(fault_data_set_covered)
-    return {"circuit_name": circuit_name, "circuit_reference": circuit_reference, "minimal_set": fault_data_set_covered,
-            'set_length': len(fault_data_set_covered)}
+    return {"circuit_name": circuit_name, "circuit_reference": circuit_reference,
+            "minimal_set_bidirectional": fault_data_set_covered, 'set_length': len(fault_data_set_covered)}
 
 
-def experimental_runner() -> None:
+def experimental_bi_runner() -> None:
     """
     Runs multiple circuits for the configs present inside the data.json file
     :return: Nothing
@@ -159,5 +158,5 @@ def experimental_runner() -> None:
     minimal_sets = list(map(simulate_circuit, circuit_data))
 
     # with open("./RESULTS/MINIMAL_SETS/mini_set.json", "w") as file:
-    with open("./RESULTS/REVLIB/MINIMAL_SETS/mini_set.json", "w") as file:
+    with open("./RESULTS/REVLIB/MINIMAL_SETS/mini_set_bidirectional.json", "w") as file:
         json.dump(minimal_sets, file, indent=2)

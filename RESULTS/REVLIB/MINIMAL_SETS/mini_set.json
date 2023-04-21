@@ -7,7 +7,8 @@
       6,
       4,
       5
-    ]
+    ],
+    "set_length": 4
   },
   {
     "circuit_name": "4 greater than 10",
@@ -18,7 +19,8 @@
       21,
       31,
       15
-    ]
+    ],
+    "set_length": 5
   },
   {
     "circuit_name": "4 greater than 4",
@@ -30,7 +32,8 @@
       11,
       10,
       23
-    ]
+    ],
+    "set_length": 6
   },
   {
     "circuit_name": "4 modulo 7",
@@ -41,7 +44,8 @@
       28,
       31,
       22
-    ]
+    ],
+    "set_length": 5
   },
   {
     "circuit_name": "4 greater than 12",
@@ -52,7 +56,8 @@
       26,
       22,
       29
-    ]
+    ],
+    "set_length": 5
   },
   {
     "circuit_name": "4 greater than 13",
@@ -62,7 +67,8 @@
       26,
       30,
       23
-    ]
+    ],
+    "set_length": 4
   },
   {
     "circuit_name": "1-bit Adder",
@@ -71,7 +77,8 @@
       15,
       7,
       9
-    ]
+    ],
+    "set_length": 3
   },
   {
     "circuit_name": "Graycode",
@@ -80,7 +87,8 @@
       63,
       48,
       47
-    ]
+    ],
+    "set_length": 3
   },
   {
     "circuit_name": "Modulo mili 5",
@@ -90,7 +98,8 @@
       15,
       29,
       27
-    ]
+    ],
+    "set_length": 4
   },
   {
     "circuit_name": "Mod 5d1",
@@ -99,7 +108,8 @@
       27,
       29,
       25
-    ]
+    ],
+    "set_length": 3
   },
   {
     "circuit_name": "Mod 5d2",
@@ -110,7 +120,8 @@
       28,
       31,
       27
-    ]
+    ],
+    "set_length": 5
   },
   {
     "circuit_name": "4 greater than 11",
@@ -120,7 +131,8 @@
       31,
       27,
       23
-    ]
+    ],
+    "set_length": 4
   },
   {
     "circuit_name": "ALU v2",
@@ -132,7 +144,8 @@
       30,
       15,
       19
-    ]
+    ],
+    "set_length": 6
   },
   {
     "circuit_name": "ALU v3",
@@ -142,7 +155,8 @@
       26,
       27,
       28
-    ]
+    ],
+    "set_length": 4
   },
   {
     "circuit_name": "XOR 5",
@@ -151,7 +165,8 @@
       58,
       53,
       47
-    ]
+    ],
+    "set_length": 3
   },
   {
     "circuit_name": "MOD 10r",
@@ -163,6 +178,7 @@
       6,
       7,
       12
-    ]
+    ],
+    "set_length": 6
   }
 ]

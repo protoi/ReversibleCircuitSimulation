@@ -1,0 +1,306 @@
+[
+  {
+    "circuit_name": "Hamming Code",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/ham3_102.jpg",
+    "minimal_set": [
+      3,
+      2,
+      1
+    ],
+    "set_length": 3
+  },
+  {
+    "circuit_name": "4 greater than 10",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt10-v1_81.jpg",
+    "minimal_set": [
+      7,
+      21,
+      19,
+      11,
+      10,
+      20
+    ],
+    "set_length": 6
+  },
+  {
+    "circuit_name": "4 greater than 4",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt4-v0_72.jpg",
+    "minimal_set": [
+      3,
+      6,
+      7,
+      12,
+      14
+    ],
+    "set_length": 5
+  },
+  {
+    "circuit_name": "4 modulo 7",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4mod7-v0_94.jpg",
+    "minimal_set": [
+      7,
+      10,
+      13,
+      6,
+      11,
+      12
+    ],
+    "set_length": 6
+  },
+  {
+    "circuit_name": "4 greater than 12",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt12-v0_88.jpg",
+    "minimal_set": [
+      14,
+      7,
+      11,
+      13,
+      12
+    ],
+    "set_length": 5
+  },
+  {
+    "circuit_name": "4 greater than 13",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt13-v1_93.jpg",
+    "minimal_set": [
+      7,
+      10,
+      12,
+      14
+    ],
+    "set_length": 4
+  },
+  {
+    "circuit_name": "1-bit Adder",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/rd32-v1_68.jpg",
+    "minimal_set": [
+      8,
+      2,
+      6,
+      12
+    ],
+    "set_length": 4
+  },
+  {
+    "circuit_name": "Graycode",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/graycode6_47.jpg",
+    "minimal_set": [
+      10,
+      5,
+      16
+    ],
+    "set_length": 3
+  },
+  {
+    "circuit_name": "Modulo mili 5",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5mils_71.jpg",
+    "minimal_set": [
+      4,
+      10,
+      12,
+      18,
+      16
+    ],
+    "set_length": 5
+  },
+  {
+    "circuit_name": "Mod 5d1",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5d1_63.jpg",
+    "minimal_set": [
+      2,
+      4,
+      6
+    ],
+    "set_length": 3
+  },
+  {
+    "circuit_name": "Mod 5d2",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5d2_64.jpg",
+    "minimal_set": [
+      2,
+      5,
+      6,
+      3,
+      1
+    ],
+    "set_length": 5
+  },
+  {
+    "circuit_name": "4 greater than 11",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt11-v1_85.jpg",
+    "minimal_set": [
+      12,
+      4,
+      9
+    ],
+    "set_length": 3
+  },
+  {
+    "circuit_name": "ALU v2",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/alu-v2_31.jpg",
+    "minimal_set": [
+      11,
+      7,
+      16,
+      13,
+      14,
+      17,
+      15,
+      18
+    ],
+    "set_length": 8
+  },
+  {
+    "circuit_name": "ALU v3",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/alu-v3_34.jpg",
+    "minimal_set": [
+      1,
+      7,
+      6,
+      8
+    ],
+    "set_length": 4
+  },
+  {
+    "circuit_name": "XOR 5",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/xor5_254.jpg",
+    "minimal_set": [
+      16,
+      15
+    ],
+    "set_length": 2
+  },
+  {
+    "circuit_name": "MOD 10r",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod10_171.jpg",
+    "minimal_set": [
+      9,
+      13,
+      7,
+      11,
+      5,
+      14,
+      3
+    ],
+    "set_length": 7
+  },
+  {
+    "circuit_name": "alu 1",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/alu1_198.jpg",
+    "minimal_set": [
+      1167,
+      2175,
+      1144,
+      1220,
+      1075,
+      648,
+      1520,
+      2183,
+      2160,
+      2184
+    ],
+    "set_length": 10
+  },
+  {
+    "circuit_name": "mod10",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod10_171.jpg",
+    "minimal_set": [
+      9,
+      13,
+      7,
+      11,
+      5,
+      14,
+      3
+    ],
+    "set_length": 7
+  },
+  {
+    "circuit_name": "mod5adder",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5adder_127.real",
+    "minimal_set": [
+      28,
+      27,
+      32,
+      33,
+      34,
+      18,
+      12,
+      16,
+      26,
+      25
+    ],
+    "set_length": 10
+  },
+  {
+    "circuit_name": "mod 8-10",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod8-10_177.real",
+    "minimal_set": [
+      23,
+      27,
+      25,
+      21,
+      24,
+      8,
+      28
+    ],
+    "set_length": 7
+  },
+  {
+    "circuit_name": "Ternary Counter",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/cnt3-5_179.real",
+    "minimal_set": [
+      18726,
+      28083,
+      4684,
+      32768
+    ],
+    "set_length": 4
+  },
+  {
+    "circuit_name": "One-Two-Three Counter",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/cnt3-5_179.real",
+    "minimal_set": [
+      1,
+      23,
+      20,
+      25,
+      10,
+      18,
+      24
+    ],
+    "set_length": 7
+  },
+  {
+    "circuit_name": "rd84",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/rd84_142.real",
+    "minimal_set": [
+      20424,
+      15998,
+      4568,
+      7584,
+      16296,
+      24576
+    ],
+    "set_length": 6
+  },
+  {
+    "circuit_name": "Hamming Code (over 15 variables)",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/ham15_108.real",
+    "minimal_set": [
+      15,
+      2,
+      5,
+      7,
+      1,
+      6,
+      10,
+      11,
+      12,
+      9,
+      14,
+      13
+    ],
+    "set_length": 12
+  }
+]

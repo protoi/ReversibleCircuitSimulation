@@ -4,49 +4,6 @@ from typing import Dict, Set
 from circuit_solver import read_file, string_to_binary, fix_target_and_controls
 import binary_implementation as binimp
 import utilities as utils
-from heapq import heapify, heappop
-
-
-class HeapElement:
-    """
-    An encapsulation for heapification.
-    """
-
-    def __init__(self, circ_input: int, faults: set[int]):
-        """
-        Constructor for the heap
-
-        :param circ_input: input to the circuit, represents which input vector this element is
-        :type circ_input: int
-        :param faults: faults being captured by the aforementioned input vector
-        :type faults: set[int]
-        """
-        self.circuit_input = circ_input
-        self.faults = faults
-
-    def __lt__(self, other) -> bool:
-        """
-        Overloading of the less-than sign to replicate max heaps
-        :param other: element to be compared
-        :type other: HeapElement
-        :return: true if set size of current element is more than set size of element being compared
-        :rtype: bool
-        """
-        return len(self.faults) > len(other.faults)
-
-
-def set_diff(most_faults: HeapElement, current_element: HeapElement) -> HeapElement | None:
-    """
-    Performs a set difference on two HeapElement objects
-    :param most_faults:
-    :type most_faults:
-    :param current_element:
-    :type current_element:
-    :return: HeapElement with updated faults parameter, if no faults it returns a None
-    :rtype: HeapElement | None
-    """
-    current_element.faults = current_element.faults.difference(most_faults.faults)
-    return current_element if bool(current_element.faults) else None
 
 
 def greedily_pick_best_fit(fault_data: dict[int, set[int]]) -> list[int]:
@@ -57,23 +14,25 @@ def greedily_pick_best_fit(fault_data: dict[int, set[int]]) -> list[int]:
     :return: an array of input values for the circuit for which all faults will be covered
     :rtype: list[int]
     """
+    restructured_table = [{"circuit_input": k, "faults": v} for k, v in fault_data.items()]
+    reverse_sorted_table = sorted(restructured_table, reverse=True, key=lambda elem: len(elem["faults"]))
 
-    heap_input_fault_mapping = [HeapElement(k, v) for k, v in fault_data.items()]
+    selection = set()
+    answer = []
 
-    heapify(heap_input_fault_mapping)
-    selection, answer = set(), []
+    while len(reverse_sorted_table) != 0:
+        most_faults_identified = reverse_sorted_table[0]["faults"]
+        answer.append(reverse_sorted_table[0]["circuit_input"])
 
-    while bool(heap_input_fault_mapping):
-        most_faults_identified = heappop(heap_input_fault_mapping)  # popping root of max-heap
-        answer.append(most_faults_identified.circuit_input)  # pushing input vector to answer
-        selection.update(most_faults_identified.faults)  # updating faults that are being covered
+        selection.update(most_faults_identified)
 
-        # performing set diff on every element in the list, dropping that element is set diff yields a None
-        heap_input_fault_mapping = [diff for x in heap_input_fault_mapping if
-                                    (diff := set_diff(most_faults_identified, x)) is not None]
+        for index, element in enumerate(reverse_sorted_table):
+            reverse_sorted_table[index]["faults"] = element["faults"].difference(most_faults_identified)
+            if len(reverse_sorted_table[index]["faults"]) == 0:
+                reverse_sorted_table[index] = None
 
-        # heapification to get element with the largest fault set as new root
-        heapify(heap_input_fault_mapping)
+        reverse_sorted_table = list(filter(lambda x: x is not None, reverse_sorted_table))
+        reverse_sorted_table = sorted(reverse_sorted_table, reverse=True, key=lambda elem: len(elem["faults"]))
 
     return answer
 
@@ -129,23 +88,22 @@ def encounter_faults(circuit: binimp.Circuit, fault_mapping: dict, no_of_total_f
     """
     no_of_lines = circuit.number_of_lines
 
-    total_faults_encountered, faults_encountered = set(), dict()
+    total_faults_encountered = set()
+    faults_encountered = dict()
 
-    left_pointer, right_pointer = 0, (1 << no_of_lines) - 1
+    current_input = 0  # (1 << no_of_lines) - 1
 
-    def feed_input(input_vector):
-        circuit.set_starting_data(input_vector)
+    while (len(total_faults_encountered) != no_of_total_faults) and (current_input < (1 << no_of_lines)):
+        circuit.set_starting_data(current_input)
         circuit.circuit_user()
 
         current_faults = map_faults(fault_mapping, circuit.smgf, circuit.pmgf, circuit.mmgf)
-        total_faults_encountered.update(current_faults)
-        faults_encountered[input_vector] = current_faults
 
-    while (len(total_faults_encountered) != no_of_total_faults) and (left_pointer <= right_pointer):
-        feed_input(left_pointer)
-        feed_input(right_pointer)
-        left_pointer += 1
-        right_pointer -= 1
+        total_faults_encountered.update(current_faults)
+
+        faults_encountered[current_input] = current_faults
+
+        current_input += 1
 
     return faults_encountered
 
@@ -160,12 +118,16 @@ def simulate_circuit(circuit_data: dict) -> dict:
     :rtype: dict
     """
     circuit_name = circuit_data["name"]
-    print("bidir heap simulating ", circuit_name)
+    print("unidir left simulating ", circuit_name)
     circuit_reference = circuit_data.get('link', "no link")
 
     no_of_lines, no_of_gates = circuit_data["circuit_specs"]["lines"], circuit_data["circuit_specs"]["gates"]
 
     circuit_layout = circuit_data["circuit_layout"]
+
+    # saving a graphical representation of the circuit
+    # OPTIONAL if running with circuit_solver.runner()
+    # utils.save_circuit(circuit_layout, no_of_lines, no_of_gates, circuit_name, circuit_reference)
 
     circuit_layout_bin_string_to_integer = list(map(fix_target_and_controls, circuit_layout))
 
@@ -183,11 +145,11 @@ def simulate_circuit(circuit_data: dict) -> dict:
     fault_data_set_covered = greedily_pick_best_fit(fault_data)
 
     # print(fault_data_set_covered)
-    return {"circuit_name": circuit_name, "circuit_reference": circuit_reference,
-            "minimal_set_bidirectional": fault_data_set_covered, 'set_length': len(fault_data_set_covered)}
+    return {"circuit_name": circuit_name, "circuit_reference": circuit_reference, "minimal_set": fault_data_set_covered,
+            'set_length': len(fault_data_set_covered)}
 
 
-def experimental_bi_runner() -> None:
+def experimental_runner() -> None:
     """
     Runs multiple circuits for the configs present inside the data.json file
     :return: Nothing
@@ -197,5 +159,5 @@ def experimental_bi_runner() -> None:
     minimal_sets = list(map(simulate_circuit, circuit_data))
 
     # with open("./RESULTS/MINIMAL_SETS/mini_set.json", "w") as file:
-    with open("./RESULTS/REVLIB/MINIMAL_SETS/mini_set_bidirectional_heap.json", "w") as file:
+    with open("./RESULTS/REVLIB/MINIMAL_SETS/mini_set_left.json", "w") as file:
         json.dump(minimal_sets, file, indent=2)

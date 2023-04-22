@@ -209,5 +209,94 @@
       12
     ],
     "set_length": 6
+  },
+  {
+    "circuit_name": "mod5adder",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5adder_127.real",
+    "minimal_set": [
+      50,
+      56,
+      41,
+      36,
+      58,
+      28,
+      33,
+      31,
+      48,
+      40,
+      57,
+      34
+    ],
+    "set_length": 12
+  },
+  {
+    "circuit_name": "mod 8-10",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod8-10_177.real",
+    "minimal_set": [
+      23,
+      27,
+      25,
+      21,
+      24,
+      28,
+      8
+    ],
+    "set_length": 7
+  },
+  {
+    "circuit_name": "Ternary Counter",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/cnt3-5_179.real",
+    "minimal_set": [
+      51494,
+      60851,
+      37452,
+      32767
+    ],
+    "set_length": 4
+  },
+  {
+    "circuit_name": "One-Two-Three Counter",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/cnt3-5_179.real",
+    "minimal_set": [
+      19,
+      27,
+      30,
+      29,
+      7,
+      11,
+      31
+    ],
+    "set_length": 7
+  },
+  {
+    "circuit_name": "rd84",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/rd84_142.real",
+    "minimal_set": [
+      24527,
+      31823,
+      17407,
+      16383,
+      20431
+    ],
+    "set_length": 5
+  },
+  {
+    "circuit_name": "Hamming Code (over 15 variables)",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/ham15_108.real",
+    "minimal_set": [
+      32754,
+      32767,
+      32757,
+      32759,
+      32753,
+      32758,
+      32762,
+      32763,
+      32764,
+      32761,
+      32766,
+      32765
+    ],
+    "set_length": 12
   }
 ]

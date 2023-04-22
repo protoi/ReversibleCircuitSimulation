@@ -119,6 +119,7 @@ def simulate_circuit(circuit_data: dict) -> dict:
     :rtype: dict
     """
     circuit_name = circuit_data["name"]
+    print("unidir simulating ", circuit_name)
     circuit_reference = circuit_data.get('link', "no link")
 
     no_of_lines, no_of_gates = circuit_data["circuit_specs"]["lines"], circuit_data["circuit_specs"]["gates"]

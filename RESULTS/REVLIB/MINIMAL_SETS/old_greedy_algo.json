@@ -1,5 +1,15 @@
 [
   {
+    "circuit_name": "Toffoli Gate",
+    "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/ham3_102.jpg",
+    "minimal_set_inefficient": [
+      2,
+      4,
+      6
+    ],
+    "set_length": 3
+  },
+  {
     "circuit_name": "Hamming Code",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/ham3_102.jpg",
     "minimal_set_inefficient": [

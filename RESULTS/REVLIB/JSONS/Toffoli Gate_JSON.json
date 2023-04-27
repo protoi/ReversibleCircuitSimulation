@@ -1,0 +1,58 @@
+{
+  "name": "Toffoli Gate",
+  "ref link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/ham3_102.jpg",
+  "data": [
+    {
+      "smgf": [],
+      "pmgf": [],
+      "mmgf": []
+    },
+    {
+      "smgf": [],
+      "pmgf": [],
+      "mmgf": []
+    },
+    {
+      "smgf": [],
+      "pmgf": [
+        3
+      ],
+      "mmgf": []
+    },
+    {
+      "smgf": [],
+      "pmgf": [
+        3
+      ],
+      "mmgf": []
+    },
+    {
+      "smgf": [],
+      "pmgf": [
+        2
+      ],
+      "mmgf": []
+    },
+    {
+      "smgf": [],
+      "pmgf": [
+        2
+      ],
+      "mmgf": []
+    },
+    {
+      "smgf": [
+        1
+      ],
+      "pmgf": [],
+      "mmgf": []
+    },
+    {
+      "smgf": [
+        1
+      ],
+      "pmgf": [],
+      "mmgf": []
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import experimental as exp
 import unidirectional_left as uni_left
 import experimental_bidirectional as exp_bi
 import bidirectional_heap as bi_heap
+import bidirectional_max as bi_max
 import time
 
 if __name__ == "__main__":
@@ -15,14 +16,15 @@ if __name__ == "__main__":
     #
 
     # Unidirectional starting from right
-    time_start_new = time.time()
-    exp.experimental_runner()
-    time_end_new = time.time()
+    # time_start_new = time.time()
+    # exp.experimental_runner()
+    # time_end_new = time.time()
 
     # Unidirectional starting from left
-    time_start_new_left = time.time()
-    uni_left.experimental_runner()
-    time_end_new_left = time.time()
+    # time_start_new_left = time.time()
+    # uni_left.experimental_runner()
+    # time_end_new_left = time.time()
+
 
     # bidirectional starting from left and right
     time_start_new_bi = time.time()
@@ -35,8 +37,17 @@ if __name__ == "__main__":
     bi_heap.experimental_bi_runner()
     time_end_new_bi_heap = time.time()
 
+
+
+
+    # bidirectional just max starting from left and right
+    time_start_new_bi_max = time.time()
+    bi_max.experimental_bi_runner()
+    time_end_new_bi_max = time.time()
+
     # print(f"OLD -> {time_end_old - time_start_old}")
-    print(f"NEW -> {time_end_new - time_start_new}")
-    print(f"NEW LEFT -> {time_end_new_left - time_start_new_left}")
+    # print(f"NEW -> {time_end_new - time_start_new}")
+    # print(f"NEW LEFT -> {time_end_new_left - time_start_new_left}")
+    print(f"NEW BI MAX -> {time_end_new_bi_max - time_start_new_bi_max}")
     print(f"NEW BI -> {time_end_new_bi - time_start_new_bi}")
     print(f"NEW BI HEAP -> {time_end_new_bi_heap - time_start_new_bi_heap}")

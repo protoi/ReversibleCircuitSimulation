@@ -1,4 +1,5 @@
 import json
+from operator import itemgetter
 from typing import Dict, Set
 
 from circuit_solver import read_file, string_to_binary, fix_target_and_controls
@@ -6,7 +7,8 @@ import binary_implementation as binimp
 import utilities as utils
 
 
-def set_diff(most_faults: tuple[int, set[int]], current_element: tuple[int, set[int]]) -> tuple[int, set[int]] | None:
+def set_diff(most_faults: tuple[int, set[int], int], current_element: tuple[int, set[int], int]) -> tuple[int, set[
+    int], int] | None:
     """
     Performs a set difference on two (int, set) tuples
     :param most_faults:
@@ -17,7 +19,7 @@ def set_diff(most_faults: tuple[int, set[int]], current_element: tuple[int, set[
     :rtype: HeapElement | None
     """
     f = current_element[1].difference(most_faults[1])
-    return (current_element[0], f) if bool(f) else None
+    return (current_element[0], f, len(f)) if bool(f) else None
 
 
 def greedily_pick_best_fit(fault_data: dict[int, set[int]]) -> list[int]:
@@ -29,21 +31,23 @@ def greedily_pick_best_fit(fault_data: dict[int, set[int]]) -> list[int]:
     :rtype: list[int]
     """
 
-    heap_input_fault_mapping = [(k, v) for k, v in fault_data.items()]  # (input_vector, fault_set) tuple
+    input_fault_mappings: list[tuple[int, set[int], int]] = [(k, v, len(v)) for k, v in
+                                                             fault_data.items()]  # (input_vector, fault_set, len(fault_set) tuple
 
     selection, answer = set(), []
 
-    while bool(heap_input_fault_mapping):
-        most_faults_identified: tuple[int, set[int]] = max(heap_input_fault_mapping,
-                                                           key=lambda elem: len(
-                                                               elem[1]))  # picking element with the largest fault set
+    while bool(input_fault_mappings):
+        # picking element with the largest len(fault set).
+        # Apparently item getter is more efficient than a lambda function
+        # like key = lambda elem : len(elem[1])
+        most_faults_identified: tuple[int, set[int], int] = max(input_fault_mappings, key=itemgetter(2))
 
         answer.append(most_faults_identified[0])  # pushing input vector to answer
         selection.update(most_faults_identified[1])  # updating faults that are being covered
 
         # performing set diff on every element in the list, dropping that element if set diff yields a None
-        heap_input_fault_mapping = [diff for x in heap_input_fault_mapping if
-                                    (diff := set_diff(most_faults_identified, x)) is not None]
+        input_fault_mappings = [diff for x in input_fault_mappings if
+                                (diff := set_diff(most_faults_identified, x)) is not None]
 
     return answer
 

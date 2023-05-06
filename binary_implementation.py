@@ -40,6 +40,10 @@ class Gate:
         :rtype:int
         """
 
+        # no change happens when gate has no controls
+        if self.controls == 0b0:
+            return input_lines
+
         # inverted_target AND input will set the bit at target location to 0
         masked_input = input_lines
         viable_input = masked_input & self.controls

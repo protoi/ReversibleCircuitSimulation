@@ -40,7 +40,7 @@ def greedily_pick_best_fit(fault_data: dict[int, set[int]]) -> list[int]:
         # picking element with the largest len(fault set).
         # Apparently item getter is more efficient than a lambda function
         # like key = lambda elem : len(elem[1])
-        print(selection)
+        # print(selection)
         most_faults_identified: tuple[int, set[int], int] = max(input_fault_mappings, key=itemgetter(2))
 
         answer.append(most_faults_identified[0])  # pushing input vector to answer
@@ -50,7 +50,7 @@ def greedily_pick_best_fit(fault_data: dict[int, set[int]]) -> list[int]:
         input_fault_mappings = [diff for x in input_fault_mappings if
                                 (diff := set_diff(most_faults_identified, x)) is not None]
 
-    print("============")
+    # print("============")
 
     return answer
 

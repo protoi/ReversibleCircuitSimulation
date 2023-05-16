@@ -48,6 +48,6 @@ if __name__ == "__main__":
     # print(f"OLD -> {time_end_old - time_start_old}")
     # print(f"NEW -> {time_end_new - time_start_new}")
     # print(f"NEW LEFT -> {time_end_new_left - time_start_new_left}")
-    print(f"NEW BI MAX -> {time_end_new_bi_max - time_start_new_bi_max}")
     print(f"NEW BI -> {time_end_new_bi - time_start_new_bi}")
     print(f"NEW BI HEAP -> {time_end_new_bi_heap - time_start_new_bi_heap}")
+    print(f"NEW BI MAX -> {time_end_new_bi_max - time_start_new_bi_max}")

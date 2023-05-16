@@ -290,5 +290,18 @@
       3059
     ],
     "set_length": 16
+  },
+  {
+    "circuit_name": "mux_246T",
+    "circuit_reference": "https://www.revlib.org/doc/real/4gt12-v0_86.real",
+    "minimal_set_bidirectional": [
+      1048575,
+      4128768,
+      4128767,
+      4063231,
+      3932159,
+      3670015
+    ],
+    "set_length": 6
   }
 ]

@@ -571,8 +571,6 @@
     },
     "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod10_171.jpg"
   },
-
-
   {
     "name": "mod10",
     "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod10_171.jpg",
@@ -1356,6 +1354,280 @@
       {
         "target": "0b000010000000000",
         "controls": "0b100000000000000"
+      }
+    ]
+  },
+  {
+    "name": "rd53",
+    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/rd84_142.real",
+    "circuit_specs": {
+      "lines": 7,
+      "gates": 28
+    },
+    "circuit_layout": [
+      {
+        "target": "0b0000001",
+        "controls": "0b1011100"
+      },
+      {
+        "target": "0b0010000",
+        "controls": "0b0100000"
+      },
+      {
+        "target": "0b0001000",
+        "controls": "0b0010000"
+      },
+      {
+        "target": "0b0000100",
+        "controls": "0b0001000"
+      },
+      {
+        "target": "0b1000000",
+        "controls": "0b0000100"
+      },
+      {
+        "target": "0b0000010",
+        "controls": "0b1000100"
+      },
+      {
+        "target": "0b0010000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0000010",
+        "controls": "0b0110000"
+      },
+      {
+        "target": "0b0010000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0001000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0000010",
+        "controls": "0b0011000"
+      },
+      {
+        "target": "0b0001000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0000100",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0001000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0000010",
+        "controls": "0b0001100"
+      },
+      {
+        "target": "0b0001000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0000100",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0000010",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b1000000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0001000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0000001",
+        "controls": "0b1101100"
+      },
+      {
+        "target": "0b0001000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b1000000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b1000000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0010000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b0000001",
+        "controls": "0b1111000"
+      },
+      {
+        "target": "0b0010000",
+        "controls": "0b0000000"
+      },
+      {
+        "target": "0b1000000",
+        "controls": "0b0000000"
+      }
+    ]
+  },
+  {
+    "name": "4gt12-v0_86T",
+    "link": "https://www.revlib.org/doc/real/4gt12-v0_86.real",
+    "circuit_specs": {
+      "lines": 5,
+      "gates": 14
+    },
+    "circuit_layout": [
+      {
+        "target": "0b01000",
+        "controls": "0b00100"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b01000"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b00010"
+      },
+      {
+        "target": "0b00010",
+        "controls": "0b00100"
+      },
+      {
+        "target": "0b00010",
+        "controls": "0b00001"
+      },
+      {
+        "target": "0b00001",
+        "controls": "0b00010"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b01111"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00111"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b01001"
+      },
+      {
+        "target": "0b00010",
+        "controls": "0b00001"
+      },
+      {
+        "target": "0b00100",
+        "controls": "0b00001"
+      },
+      {
+        "target": "0b01000",
+        "controls": "0b00001"
+      },
+      {
+        "target": "0b00001",
+        "controls": "0b10000"
+      },
+      {
+        "target": "0b10000",
+        "controls": "0b00001"
+      }
+    ]
+  },
+  {
+    "name": "cycle10_2",
+    "link": "https://www.revlib.org/doc/real/cycle10_2_110.real",
+    "circuit_specs": {
+      "lines": 12,
+      "gates": 19
+    },
+    "circuit_layout": [
+      {
+        "target": "0b000000000100",
+        "controls": "0b011111111001"
+      },
+      {
+        "target": "0b000000001000",
+        "controls": "0b011111110001"
+      },
+      {
+        "target": "0b000000010000",
+        "controls": "0b011111100001"
+      },
+      {
+        "target": "0b000000100000",
+        "controls": "0b011111000001"
+      },
+      {
+        "target": "0b000001000000",
+        "controls": "0b011110000001"
+      },
+      {
+        "target": "0b000010000000",
+        "controls": "0b011100000001"
+      },
+      {
+        "target": "0b000100000000",
+        "controls": "0b011000000001"
+      },
+      {
+        "target": "0b001000000000",
+        "controls": "0b010000000001"
+      },
+      {
+        "target": "0b010000000000",
+        "controls": "0b000000000001"
+      },
+      {
+        "target": "0b000000000100",
+        "controls": "0b111111111010"
+      },
+      {
+        "target": "0b000000001000",
+        "controls": "0b111111110010"
+      },
+      {
+        "target": "0b000000010000",
+        "controls": "0b111111100010"
+      },
+      {
+        "target": "0b000000100000",
+        "controls": "0b111111000010"
+      },
+      {
+        "target": "0b000001000000",
+        "controls": "0b111110000010"
+      },
+      {
+        "target": "0b000010000000",
+        "controls": "0b111100000010"
+      },
+      {
+        "target": "0b000100000000",
+        "controls": "0b111000000010"
+      },
+      {
+        "target": "0b001000000000",
+        "controls": "0b110000000010"
+      },
+      {
+        "target": "0b010000000000",
+        "controls": "0b100000000010"
+      },
+      {
+        "target": "0b100000000000",
+        "controls": "0b000000000010"
       }
     ]
   }

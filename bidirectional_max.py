@@ -40,6 +40,7 @@ def greedily_pick_best_fit(fault_data: dict[int, set[int]]) -> list[int]:
         # picking element with the largest len(fault set).
         # Apparently item getter is more efficient than a lambda function
         # like key = lambda elem : len(elem[1])
+        print(selection)
         most_faults_identified: tuple[int, set[int], int] = max(input_fault_mappings, key=itemgetter(2))
 
         answer.append(most_faults_identified[0])  # pushing input vector to answer
@@ -48,6 +49,8 @@ def greedily_pick_best_fit(fault_data: dict[int, set[int]]) -> list[int]:
         # performing set diff on every element in the list, dropping that element if set diff yields a None
         input_fault_mappings = [diff for x in input_fault_mappings if
                                 (diff := set_diff(most_faults_identified, x)) is not None]
+
+    print("============")
 
     return answer
 
@@ -87,6 +90,29 @@ def map_faults(fault_mappings: dict, smgf: list[bool], pmgf: list[int], mmgf: li
     return faults_numbers
 
 
+def map_faults_only_pmgf(fault_mappings: dict, pmgf: list[int]) -> set[int]:
+    """
+    returns a set with all possible faults contained in the pmgf list after referencing
+    it in the fault_mapping dictionary
+    :param fault_mappings: the fault mapping, fault mapped with a unique integer
+    :type fault_mappings: dict
+    :param pmgf: A list of length = No of gates in the circuit.
+        Each element in pmgf is a binary number, for which the set bit location = pmgf fault being caught
+    :type pmgf: list[int]
+    :return: a set of faults being identified
+    :rtype: set[int]
+    """
+    faults_numbers = set()
+
+    for index, fault in enumerate(pmgf):
+        if fault == 0b0:
+            continue
+        pmgf_tuple = (index, fault)
+        faults_numbers.add(fault_mappings.get(pmgf_tuple, 0))
+
+    return faults_numbers
+
+
 def encounter_faults(circuit: binimp.Circuit, fault_mapping: dict, no_of_total_faults: int) -> dict[int, set[int]]:
     """
     starts from circuit input having the highest number of 1s
@@ -111,9 +137,10 @@ def encounter_faults(circuit: binimp.Circuit, fault_mapping: dict, no_of_total_f
 
     def feed_input(input_vector):
         circuit.set_starting_data(input_vector)
-        circuit.circuit_user()
+        circuit.circuit_user(s=False, m=False)
 
-        current_faults = map_faults(fault_mapping, circuit.smgf, circuit.pmgf, circuit.mmgf)
+        # current_faults = map_faults(fault_mapping, circuit.smgf, circuit.pmgf, circuit.mmgf)
+        current_faults = map_faults_only_pmgf(fault_mapping, circuit.pmgf)
         total_faults_encountered.update(current_faults)
         faults_encountered[input_vector] = current_faults
 

@@ -130,9 +130,9 @@ class Circuit:
         :rtype: None
         """
         self.cascade_of_gates = [Gate(config_data['target'], config_data['controls'], self.number_of_lines) for
-            config_data in gate_config]
+                                 config_data in gate_config]
 
-    def circuit_user(self):
+    def circuit_user(self, s=True, p=True, m=True):
         """
         fills the values for smgf and pmgf for a certain gate
         :return: None
@@ -151,12 +151,15 @@ class Circuit:
         '''
         no_of_gates = len(self.cascade_of_gates)
         self.outputs = [0 for _ in range(no_of_gates)]
-        self.smgf = [False for _ in range(no_of_gates)]
-        self.pmgf = [0 for _ in range(no_of_gates)]
+        if s:
+            self.smgf = [False for _ in range(no_of_gates)]
+        if p:
+            self.pmgf = [0 for _ in range(no_of_gates)]
         # self.pmgf_new = copy.copy(self.outputs)
 
         # self.mmgf = [(0, 0) for _ in range((no_of_gates * (no_of_gates - 1)) // 2)]
-        self.mmgf = []
+        if m:
+            self.mmgf = []
 
         current_output = self.starting_data
 
@@ -180,7 +183,9 @@ class Circuit:
                 This is a test for smgf
             '''
             if current_input & gate.controls == gate.controls:
-                self.smgf[index] = True  # need to append current input to this list instead of setting to true or false
+                if s:
+                    self.smgf[
+                        index] = True  # need to append current input to this list instead of setting to true or false
                 '''
                                                       7 = 00111
                         {'target': 0b10000, 'controls': 0b00111}, -> 0b10111
@@ -189,20 +194,22 @@ class Circuit:
             # otherwise we check if it is a test for pmgf or not
             else:
                 # below line was faulty
-                self.pmgf[index] = generate_pmgf(current_input, gate.controls)
+                if p:
+                    self.pmgf[index] = generate_pmgf(current_input, gate.controls)
 
         # checking for mmgfs
-        for starting_gate in range(no_of_gates - 1):  # where the gates go missing from
-            for ending_gate in range(starting_gate + 1, no_of_gates):  # upto which gate is everything missing
-                output_after_first_gate_removed = self.outputs[starting_gate - 1]
+        if m:
+            for starting_gate in range(no_of_gates - 1):  # where the gates go missing from
+                for ending_gate in range(starting_gate + 1, no_of_gates):  # upto which gate is everything missing
+                    output_after_first_gate_removed = self.outputs[starting_gate - 1]
 
-                # if 1st[0th index] gate goes missing, the circuits original input is propagated up to ending_gate+1
-                if starting_gate == 0:
-                    output_after_first_gate_removed = self.starting_data
+                    # if 1st[0th index] gate goes missing, the circuits original input is propagated up to ending_gate+1
+                    if starting_gate == 0:
+                        output_after_first_gate_removed = self.starting_data
 
-                # check for output of  starting_gate - 1 != output of ending_gate -> fault is detectable
-                if output_after_first_gate_removed != self.outputs[ending_gate]:
-                    self.mmgf.append((starting_gate, ending_gate))
+                    # check for output of  starting_gate - 1 != output of ending_gate -> fault is detectable
+                    if output_after_first_gate_removed != self.outputs[ending_gate]:
+                        self.mmgf.append((starting_gate, ending_gate))
 
     def print_outputs(self):
         print(f'for input data: {utils.display(self.starting_data, self.number_of_lines)}')

@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     # bidirectional starting from left and right
     time_start_new_bi = time.time()
-    exp_bi.experimental_bi_runner()
+    # exp_bi.experimental_bi_runner()
     time_end_new_bi = time.time()
 
     # bidirectional starting from left and right
@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     # bidirectional just max starting from left and right
     time_start_new_bi_max = time.time()
-    bi_max.experimental_bi_runner()
+    # bi_max.experimental_bi_runner()
     time_end_new_bi_max = time.time()
 
     # print(f"OLD -> {time_end_old - time_start_old}")

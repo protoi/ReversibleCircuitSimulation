@@ -64,10 +64,10 @@ def greedily_pick_best_fit_experimental(fault_data: dict[int, set[int]]) -> list
     :rtype: list[int]
     """
 
-    print(f" fault data ++++++++ ++++++++")
-    for k, v in fault_data.items():
-        print(k, '-> ', v)
-    print("++++++++++++++++")
+    # print(f" fault data ++++++++ ++++++++")
+    # for k, v in fault_data.items():
+    #     print(k, '-> ', v)
+    # print("++++++++++++++++")
 
     input_fault_mappings: list[tuple[int, set[int], int]] = [(k, v, len(v)) for k, v in
                                                              fault_data.items()]  # (input_vector, fault_set, len(fault_set) tuple
@@ -175,10 +175,11 @@ def encounter_faults(circuit: binimp.Circuit, fault_mapping: dict, no_of_total_f
 
     def feed_input(input_vector):
         circuit.set_starting_data(input_vector)
-        circuit.circuit_user(s=False, m=False)
+        circuit.circuit_user()
+        # circuit.circuit_user(s=False, m=False)
 
-        # current_faults = map_faults(fault_mapping, circuit.smgf, circuit.pmgf, circuit.mmgf)
-        current_faults = map_faults_only_pmgf(fault_mapping, circuit.pmgf)
+        current_faults = map_faults(fault_mapping, circuit.smgf, circuit.pmgf, circuit.mmgf)
+        # current_faults = map_faults_only_pmgf(fault_mapping, circuit.pmgf)
         total_faults_encountered.update(current_faults)
         faults_encountered[input_vector] = current_faults
 
@@ -250,13 +251,15 @@ def encounter_faults_experimental(circuit: binimp.Circuit, fault_mapping: dict, 
         :rtype: None
         """
         circuit.set_starting_data(left_vector)
-        circuit.circuit_user()
+        # circuit.circuit_user()
+        circuit.circuit_user(s=False, m=False)
 
         # left_faults = map_faults(fault_mapping, circuit.smgf, circuit.pmgf, circuit.mmgf)
         left_faults = map_faults_only_pmgf(fault_mapping, circuit.pmgf)
 
         circuit.set_starting_data(right_vector)
-        circuit.circuit_user()
+        # circuit.circuit_user()
+        circuit.circuit_user(s=False, m=False)
 
         # right_faults = map_faults(fault_mapping, circuit.smgf, circuit.pmgf, circuit.mmgf)
         right_faults = map_faults_only_pmgf(fault_mapping, circuit.pmgf)
@@ -334,14 +337,25 @@ def simulate_circuit(circuit_data: dict) -> dict:
 
     print(f"smgf, pmgf, mmgf: {count_smgf}, {count_pmgf}, {count_mmgf}")
     # fault_data, left_bound, right_bound = encounter_faults_experimental(circuit, fault_map, count_smgf + count_pmgf + count_mmgf)
+    # fault_data = encounter_faults_experimental(circuit, fault_map, count_pmgf)
+
+    # only for pmgf
     fault_data = encounter_faults_experimental(circuit, fault_map, count_pmgf)
+
+    # fault_data = encounter_faults_experimental(circuit, fault_map, count_smgf + count_pmgf + count_mmgf)
+    # fault_data = encounter_faults(circuit, fault_map, count_smgf + count_pmgf + count_mmgf)
 
     fault_data_set_covered = greedily_pick_best_fit_experimental(fault_data)
 
     # fault_data_set_covered = greedily_pick_best_fit(fault_data)
 
+    # calculate the number of 1s in every binary representation of controls
+
+    max_ones_in_controls = max(x.controls.bit_count() for x in circuit.cascade_of_gates)
+
     return {"circuit_name": circuit_name, "circuit_reference": circuit_reference,
-            "minimal_set_bidirectional": fault_data_set_covered, 'set_length': len(fault_data_set_covered)}
+            "minimal_set_bidirectional": fault_data_set_covered, 'set_length': len(fault_data_set_covered),
+            "atleast how many tests needed for pmgf": max_ones_in_controls}
 
 
 def experimental_bi_runner() -> None:
@@ -361,105 +375,35 @@ def experimental_bi_runner() -> None:
 def runmax() -> None:
     data = '''
     [    
-          {
-    "name": "MOD 10r",
+            {
+    "name": "Graycode",
     "circuit_layout": [
       {
-        "target": "0b0010",
-        "controls": "0b1000"
+        "target": "0b100000",
+        "controls": "0b010000"
       },
       {
-        "target": "0b0001",
-        "controls": "0b1110"
+        "target": "0b010000",
+        "controls": "0b001000"
       },
       {
-        "target": "0b0100",
-        "controls": "0b1011"
+        "target": "0b001000",
+        "controls": "0b000100"
       },
       {
-        "target": "0b1000",
-        "controls": "0b0111"
+        "target": "0b000100",
+        "controls": "0b000010"
       },
       {
-        "target": "0b0010",
-        "controls": "0b1000"
-      },
-      {
-        "target": "0b0010",
-        "controls": "0b1001"
-      },
-      {
-        "target": "0b0100",
-        "controls": "0b0011"
-      },
-      {
-        "target": "0b0010",
-        "controls": "0b0001"
-      },
-      {
-        "target": "0b0001",
-        "controls": "0b1010"
-      },
-      {
-        "target": "0b0001",
-        "controls": "0b0000"
+        "target": "0b000010",
+        "controls": "0b000001"
       }
     ],
     "circuit_specs": {
-      "lines": 4,
-      "gates": 10
+      "lines": 6,
+      "gates": 5
     },
-    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod10_171.jpg"
-  },
-  {
-    "name": "mod10",
-    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod10_171.jpg",
-    "circuit_specs": {
-      "lines": 4,
-      "gates": 10
-    },
-    "circuit_layout": [
-      {
-        "target": "0b0010",
-        "controls": "0b1000"
-      },
-      {
-        "target": "0b0001",
-        "controls": "0b1110"
-      },
-      {
-        "target": "0b0100",
-        "controls": "0b1011"
-      },
-      {
-        "target": "0b1000",
-        "controls": "0b0111"
-      },
-      {
-        "target": "0b0010",
-        "controls": "0b1000"
-      },
-      {
-        "target": "0b0010",
-        "controls": "0b1001"
-      },
-      {
-        "target": "0b0100",
-        "controls": "0b0011"
-      },
-      {
-        "target": "0b0010",
-        "controls": "0b0001"
-      },
-      {
-        "target": "0b0001",
-        "controls": "0b1010"
-      },
-      {
-        "target": "0b0001",
-        "controls": "0b0000"
-      }
-    ]
+    "link": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/graycode6_47.jpg"
   }
     ]
     '''
@@ -469,5 +413,4 @@ def runmax() -> None:
     print(json.dumps(minimal_sets, indent=4))
 
 
-# experimental_bi_runner()
-runmax()
+experimental_bi_runner()  # runmax()

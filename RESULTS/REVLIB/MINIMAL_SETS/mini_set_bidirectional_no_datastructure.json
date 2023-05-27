@@ -7,7 +7,8 @@
       1,
       6
     ],
-    "set_length": 3
+    "set_length": 3,
+    "atleast how many tests needed for pmgf": 2
   },
   {
     "circuit_name": "4 greater than 10",
@@ -18,7 +19,8 @@
       30,
       5
     ],
-    "set_length": 4
+    "set_length": 4,
+    "atleast how many tests needed for pmgf": 3
   },
   {
     "circuit_name": "4 greater than 4",
@@ -29,7 +31,8 @@
       31,
       21
     ],
-    "set_length": 4
+    "set_length": 4,
+    "atleast how many tests needed for pmgf": 4
   },
   {
     "circuit_name": "4 modulo 7",
@@ -40,7 +43,8 @@
       31,
       26
     ],
-    "set_length": 4
+    "set_length": 4,
+    "atleast how many tests needed for pmgf": 3
   },
   {
     "circuit_name": "4 greater than 12",
@@ -52,7 +56,8 @@
       28,
       7
     ],
-    "set_length": 5
+    "set_length": 5,
+    "atleast how many tests needed for pmgf": 4
   },
   {
     "circuit_name": "4 greater than 13",
@@ -62,7 +67,8 @@
       29,
       27
     ],
-    "set_length": 3
+    "set_length": 3,
+    "atleast how many tests needed for pmgf": 3
   },
   {
     "circuit_name": "1-bit Adder",
@@ -72,7 +78,8 @@
       4,
       11
     ],
-    "set_length": 3
+    "set_length": 3,
+    "atleast how many tests needed for pmgf": 2
   },
   {
     "circuit_name": "Graycode",
@@ -80,7 +87,8 @@
     "minimal_set_bidirectional": [
       0
     ],
-    "set_length": 1
+    "set_length": 1,
+    "atleast how many tests needed for pmgf": 1
   },
   {
     "circuit_name": "Modulo mili 5",
@@ -89,7 +97,8 @@
       0,
       29
     ],
-    "set_length": 2
+    "set_length": 2,
+    "atleast how many tests needed for pmgf": 2
   },
   {
     "circuit_name": "Mod 5d1",
@@ -99,7 +108,8 @@
       2,
       4
     ],
-    "set_length": 3
+    "set_length": 3,
+    "atleast how many tests needed for pmgf": 2
   },
   {
     "circuit_name": "Mod 5d2",
@@ -109,7 +119,8 @@
       31,
       2
     ],
-    "set_length": 3
+    "set_length": 3,
+    "atleast how many tests needed for pmgf": 2
   },
   {
     "circuit_name": "4 greater than 11",
@@ -118,7 +129,8 @@
       4,
       27
     ],
-    "set_length": 2
+    "set_length": 2,
+    "atleast how many tests needed for pmgf": 2
   },
   {
     "circuit_name": "ALU v2",
@@ -128,7 +140,8 @@
       30,
       29
     ],
-    "set_length": 3
+    "set_length": 3,
+    "atleast how many tests needed for pmgf": 3
   },
   {
     "circuit_name": "ALU v3",
@@ -138,7 +151,8 @@
       1,
       26
     ],
-    "set_length": 3
+    "set_length": 3,
+    "atleast how many tests needed for pmgf": 2
   },
   {
     "circuit_name": "XOR 5",
@@ -147,7 +161,8 @@
       0,
       63
     ],
-    "set_length": 2
+    "set_length": 2,
+    "atleast how many tests needed for pmgf": 1
   },
   {
     "circuit_name": "MOD 10r",
@@ -159,7 +174,8 @@
       3,
       9
     ],
-    "set_length": 5
+    "set_length": 5,
+    "atleast how many tests needed for pmgf": 3
   },
   {
     "circuit_name": "mod10",
@@ -171,7 +187,8 @@
       3,
       9
     ],
-    "set_length": 5
+    "set_length": 5,
+    "atleast how many tests needed for pmgf": 3
   },
   {
     "circuit_name": "mod5adder",
@@ -186,7 +203,8 @@
       60,
       50
     ],
-    "set_length": 8
+    "set_length": 8,
+    "atleast how many tests needed for pmgf": 4
   },
   {
     "circuit_name": "mod 8-10",
@@ -200,7 +218,8 @@
       8,
       23
     ],
-    "set_length": 7
+    "set_length": 7,
+    "atleast how many tests needed for pmgf": 4
   },
   {
     "circuit_name": "Ternary Counter",
@@ -212,7 +231,8 @@
       294,
       2342
     ],
-    "set_length": 5
+    "set_length": 5,
+    "atleast how many tests needed for pmgf": 2
   },
   {
     "circuit_name": "One-Two-Three Counter",
@@ -222,7 +242,8 @@
       30,
       23
     ],
-    "set_length": 3
+    "set_length": 3,
+    "atleast how many tests needed for pmgf": 3
   },
   {
     "circuit_name": "rd84",
@@ -234,7 +255,8 @@
       24575,
       32703
     ],
-    "set_length": 5
+    "set_length": 5,
+    "atleast how many tests needed for pmgf": 2
   },
   {
     "circuit_name": "Hamming Code (over 15 variables)",
@@ -250,7 +272,8 @@
       32765,
       32761
     ],
-    "set_length": 9
+    "set_length": 9,
+    "atleast how many tests needed for pmgf": 4
   },
   {
     "circuit_name": "rd53",
@@ -267,7 +290,8 @@
       40,
       44
     ],
-    "set_length": 10
+    "set_length": 10,
+    "atleast how many tests needed for pmgf": 4
   },
   {
     "circuit_name": "4gt12-v0_86T",
@@ -280,7 +304,8 @@
       28,
       26
     ],
-    "set_length": 6
+    "set_length": 6,
+    "atleast how many tests needed for pmgf": 4
   },
   {
     "circuit_name": "cycle10_2",
@@ -303,38 +328,7 @@
       4087,
       4086
     ],
-    "set_length": 16
-  },
-  {
-    "circuit_name": "mux_246T",
-    "circuit_reference": "https://www.revlib.org/doc/real/4gt12-v0_86.real",
-    "minimal_set_bidirectional": [
-      4194300,
-      4127999,
-      4063183,
-      3932147,
-      3719167,
-      3985407,
-      3863551,
-      3800895,
-      590016,
-      658432,
-      3473407,
-      720908,
-      798720,
-      3342335,
-      852016,
-      3276799,
-      918272,
-      983043,
-      3670015,
-      3604479,
-      3538943,
-      3407871,
-      3178495,
-      32768,
-      540672
-    ],
-    "set_length": 25
+    "set_length": 16,
+    "atleast how many tests needed for pmgf": 10
   }
 ]

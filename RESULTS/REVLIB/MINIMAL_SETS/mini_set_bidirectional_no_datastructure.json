@@ -24,13 +24,12 @@
     "circuit_name": "4 greater than 4",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/4gt4-v0_72.jpg",
     "minimal_set_bidirectional": [
-      14,
-      27,
-      28,
-      26,
-      22
+      30,
+      3,
+      31,
+      21
     ],
-    "set_length": 5
+    "set_length": 4
   },
   {
     "circuit_name": "4 modulo 7",
@@ -87,8 +86,8 @@
     "circuit_name": "Modulo mili 5",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5mils_71.jpg",
     "minimal_set_bidirectional": [
-      21,
-      2
+      23,
+      0
     ],
     "set_length": 2
   },
@@ -106,9 +105,9 @@
     "circuit_name": "Mod 5d2",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5d2_64.jpg",
     "minimal_set_bidirectional": [
-      4,
-      2,
-      31
+      28,
+      31,
+      2
     ],
     "set_length": 3
   },
@@ -135,8 +134,8 @@
     "circuit_name": "ALU v3",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/alu-v3_34.jpg",
     "minimal_set_bidirectional": [
-      1,
-      12
+      28,
+      17
     ],
     "set_length": 2
   },
@@ -144,7 +143,7 @@
     "circuit_name": "XOR 5",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/xor5_254.jpg",
     "minimal_set_bidirectional": [
-      0
+      10
     ],
     "set_length": 1
   },
@@ -174,15 +173,16 @@
     "circuit_name": "mod5adder",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/mod5adder_127.real",
     "minimal_set_bidirectional": [
-      23,
-      56,
+      1,
+      62,
+      16,
       57,
-      11,
-      46,
-      61,
-      55
+      12,
+      2,
+      60,
+      50
     ],
-    "set_length": 7
+    "set_length": 8
   },
   {
     "circuit_name": "mod 8-10",
@@ -247,16 +247,19 @@
     "circuit_name": "rd53",
     "circuit_reference": "http://www.informatik.uni-bremen.de/rev_lib/doc/real/rd84_142.real",
     "minimal_set_bidirectional": [
-      127,
-      28,
+      71,
+      103,
       123,
-      16,
-      44,
       119,
+      127,
+      12,
       111,
-      99
+      28,
+      99,
+      40,
+      44
     ],
-    "set_length": 8
+    "set_length": 11
   },
   {
     "circuit_name": "4gt12-v0_86T",
@@ -293,5 +296,37 @@
       4086
     ],
     "set_length": 16
+  },
+  {
+    "circuit_name": "mux_246T",
+    "circuit_reference": "https://www.revlib.org/doc/real/4gt12-v0_86.real",
+    "minimal_set_bidirectional": [
+      4194300,
+      4127999,
+      4063183,
+      3932147,
+      3719167,
+      3985407,
+      3863551,
+      3800895,
+      590016,
+      658432,
+      3473407,
+      720908,
+      798720,
+      3342335,
+      852016,
+      3276799,
+      918272,
+      983043,
+      3670015,
+      3604479,
+      3538943,
+      3407871,
+      3178495,
+      32768,
+      540672
+    ],
+    "set_length": 25
   }
 ]

@@ -33,7 +33,7 @@ def fault_map_printer(fault_map, control_lines):
             print(f"fault No.{val} = mmgf for gate range {key[0]}, {key[1]}")
 
 
-def map_fault_with_index(cascade_of_gates: list[dict]) -> tuple[dict[int | tuple[int, int], int], int]:
+def map_fault_with_index(cascade_of_gates: list[dict]) -> tuple[dict[int | tuple[int, int], int], int, int, int, int]:
     """
     takes the gate cascade, and assigns every possible fault a number.
     If the gate cascade has G gates, integer between 1 and G are mapped with smgfs.
@@ -56,21 +56,25 @@ def map_fault_with_index(cascade_of_gates: list[dict]) -> tuple[dict[int | tuple
     tempdict = {}
 
     count = 1
+    sm, pm, mm = 0, 0, 0
     for index in range(len(cascade_of_gates)):  # accommodating for smgf
         tempdict[index] = count
+        sm += 1
         count += 1
     for index, gate in enumerate(cascade_of_gates):  # accommodating for pmgf
         subparts = produce_multiples_of_2(gate['controls'])  # if input= 11010, output= [10000, 1000, 10]
         for s in subparts:
             tempdict[(index, s)] = count  # (3,4)
             count += 1
+            pm += 1
 
     for starting_gate in range(len(cascade_of_gates) - 1):
         for ending_gate in range(starting_gate + 1, len(cascade_of_gates)):
             tempdict[(f'G{starting_gate + 1}', f'G{ending_gate + 1}')] = count
             count += 1
+            mm += 1
 
-    return tempdict, count
+    return tempdict, count, sm, pm, mm
 
 
 def counter_controls(cascade_of_gates: list[dict]) -> int:
@@ -225,8 +229,8 @@ def plot_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total
     plt.show()
 
 
-def save_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total_faults: int,
-               file_name: str, file_link: str) -> None:
+def save_graph(data: list[dict], no_of_lines: int, no_of_gates: int, no_of_total_faults: int, file_name: str,
+               file_link: str) -> None:
     """
     plots the fault vs input graph
     :param no_of_total_faults: total possible faults in a circuit: smgf + pmgf + mmgf

@@ -167,7 +167,9 @@ class Circuit:
                 iterating over gate cascade and using
                 the previous output of a gate as the input for the next gate
             '''
-            current_input = copy.copy(current_output)
+            # TODO: remove copy.copy, current_output is just an integer, current_input = current_output works well enough
+            # current_input = copy.copy(current_output)
+            current_input = current_output
             current_output = gate.generate_output(current_output)
 
             # UNCOMMENT FOR STEP-WISE CIRCUIT OUTPUT
